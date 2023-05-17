@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.focusablecontrols.FocusableControlsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/focusable_controls_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/focusable_controls_description_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/focusable_controls_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/focusable_controls_description_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description2"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Bad example 1: Non-focusable ImageView with onTouchListener -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_1_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description3">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/focusable_controls_example_1_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+        </LinearLayout>
+
+        <!-- See FocusableControlsFragment.kt for discussion of Example 1. -->
+        <ImageView
+            android:id="@+id/image_view_example_1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_plus_fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/focusable_controls_example_1_image_alt_text"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_1_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/focusable_controls_example_1_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view_example_1"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Bad example 2: Focusable ImageView with onTouchListener -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_2_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_1_description">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/focusable_controls_example_2_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+        </LinearLayout>
+
+        <!-- See FocusableControlsFragment.kt for discussion of Example 2. -->
+        <ImageView
+            android:id="@+id/image_view_example_2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_plus_fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/focusable_controls_example_2_image_alt_text"
+            android:focusable="true"
+            android:screenReaderFocusable="true"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_heading"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_2_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/focusable_controls_example_2_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view_example_2"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Bad example 3: ImageButton with onTouchListener -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_3_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_2_description">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/focusable_controls_example_3_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+        </LinearLayout>
+
+        <!-- See FocusableControlsFragment.kt for discussion of Example 3. -->
+        <ImageButton
+            android:id="@+id/image_button_example_3"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/focusable_controls_example_3_image_alt_text"
+            android:src="@drawable/ic_plus_fill"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_heading" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_3_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/focusable_controls_example_3_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_3"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Good example 4: Focuable ImageView with onClickListener -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_4_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_3_description">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/focusable_controls_example_4_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+        </LinearLayout>
+
+        <!-- Good example 4: If you must use a non-default-focusable element, such as ImageView,
+             as an active control, then be sure to set android:focusable="true" and an onClickHandler.
+             (Some newer versions of Android may only require the onClickHandler, but some Android
+             versions require the explicit focusability setting.)
+
+             Also note the use of android:background="?attr/selectableItemBackgroundBorderless",
+             which is the system default selectable item background. That background would be
+             automatically provided with a default-selectable element like ImageButton. While a
+             more visible focus indicator would be preferable, some focus indicator is required.
+        -->
+        <ImageView
+            android:id="@+id/image_view_example_4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:focusable="true"
+            android:src="@drawable/ic_plus_fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/focusable_controls_example_4_image_alt_text"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_4_heading"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_4_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/focusable_controls_example_4_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view_example_4"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Good example 5: ImageButton with onClickListener -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_5_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_4_description">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/focusable_controls_example_5_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+        </LinearLayout>
+
+        <!-- Good example 5: Prefer using default-focusable elements, such as this ImageButton,
+             and be sure to set an onClickHandler, not an onTouchHandler, as is done for this
+             example in FocusableControlsFragment.kt. -->
+        <ImageButton
+            android:id="@+id/image_button_example_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_plus_fill"
+            android:contentDescription="@string/focusable_controls_example_5_image_alt_text"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_5_heading"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_5_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/focusable_controls_example_5_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_5"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <FrameLayout
+            android:id="@+id/frame_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_5_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

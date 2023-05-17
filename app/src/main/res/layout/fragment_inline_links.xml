@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.inlinelinks.InlineLinksFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/inline_links_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/inline_links_description_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/inline_links_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_1"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Good example 1: Using an HTML anchor tag -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_1_heading_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_2"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_1_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/inline_links_example_1" />
+        </LinearLayout>
+
+        <!-- The key techniques of Example 1 are (1) embedding an HTML anchor tag in string resource
+             used for the text of this TextViews and (2) setting the TextView controls
+             movementMethod to an instance of LinkMovementMethod. For the first technique, see
+             res/values/strings.xml. For the second technique, see InlineLinksFragment.kt. -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_1"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/inline_links_example_1_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading_bar" />
+
+        <!-- Good example 2: Using URLSpan -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_2_heading_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_1"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_2_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/inline_links_example_2" />
+        </LinearLayout>
+
+        <!-- The key techniques of Example 2 are (1) creating URLSpan sections within this TextView's
+             text and (2) setting its movementMethod to an instance of LinkMovementMethod, which are
+             both done in InlineLinksFragment.kt. -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_2"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/inline_links_example_2_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_heading_bar" />
+
+        <FrameLayout
+            android:id="@+id/frame_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

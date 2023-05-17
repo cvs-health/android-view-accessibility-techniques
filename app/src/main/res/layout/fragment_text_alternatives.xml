@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.textalternatives.TextAlternativesFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/text_alternatives_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/text_alternatives_description_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description2"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/text_alternatives_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description3"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/text_alternatives_description_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description2" />
+
+        <!-- Bad example 1: Sunrise and sunset icons without text alternatives -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_1_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description3">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_1_heading" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_example_1_sunrise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_1_sunrise"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_alternatives_example_sunrise_time"
+                android:textAllCaps="false" />
+
+            <!-- Note the Android Lint warning on this element regarding the missing
+                 contentDescription property. -->
+            <ImageView
+                android:id="@+id/image_view_example_1_sunrise"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sunrise_fill"
+                android:importantForAccessibility="yes"
+                app:tint="?android:textColorPrimary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_example_1_sunset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_sunrise">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_1_sunset"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_alternatives_example_sunset_time"
+                android:textAllCaps="false" />
+
+            <!-- Note the Android Lint warning on this element regarding the missing
+                 contentDescription property. -->
+            <ImageView
+                android:id="@+id/image_view_example_1_sunset"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sunset_fill"
+                android:importantForAccessibility="yes"
+                app:tint="?android:textColorPrimary" />
+        </LinearLayout>
+
+        <!-- OK example 2: Sunrise and sunset times and icons with text alternatives -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_2_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_sunset">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_circle_filled"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_2_heading" />
+        </LinearLayout>
+
+        <!-- Example 2 is only "OK", because the time texts and their icon's contentDescriptions
+             are read separately: in TalkBack, you have to swipe separately to hear each, although
+             the information of each pair is logically connected. -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_2_sunrise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_heading">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_2_sunrise"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_alternatives_example_sunrise_time"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_2_sunrise"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sunrise_fill"
+                android:contentDescription="@string/text_alternatives_example_sunrise_content_description"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_example_2_sunset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_sunrise">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_2_sunset"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_alternatives_example_sunset_time"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_2_sunset"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sunset_fill"
+                android:contentDescription="@string/text_alternatives_example_sunset_content_description"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <!-- Good example 3: Sunrise and sunset times grouped with their adjacent icons -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_3_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_sunset">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_3_heading" />
+        </LinearLayout>
+
+        <!-- Example 3 is "Good" because the two logically connected pieces of information are
+             now unified when uttered in TalkBack. The key technique is setting the
+             importantForAccessibility property on the surrounding LinearLayout to true. -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_3_sunrise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_heading">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_3_sunrise"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_alternatives_example_sunrise_time"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_3_sunrise"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sunrise_fill"
+                android:contentDescription="@string/text_alternatives_example_sunrise_content_description"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_example_3_sunset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_sunrise">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_3_sunset"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_alternatives_example_sunset_time"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_3_sunset"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sunset_fill"
+                android:contentDescription="@string/text_alternatives_example_sunset_content_description"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_3_description"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/text_alternatives_example_3_note"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_sunset" />
+
+        <!-- Good example 4: Sunrise and sunset times and icons each with a group contentDescription -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_4_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_3_description">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_4_heading" />
+        </LinearLayout>
+
+        <!-- The key technique used in Example 4 is the contentDescription applied to the enclosing LinearLayout. -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_4_sunrise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:contentDescription="@string/text_alternatives_example_4_grouped_sunrise_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_4_heading">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_4_sunrise"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_alternatives_example_sunrise_time"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_4_sunrise"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sunrise_fill"
+                android:contentDescription="@null"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_example_4_sunset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:contentDescription="@string/text_alternatives_example_4_grouped_sunset_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_4_sunrise">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_4_sunset"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_alternatives_example_sunset_time"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_4_sunset"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sunset_fill"
+                android:contentDescription="@null"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <!-- Bad example 5: A \'Share\' icon button without a text alternative -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_5_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_4_sunset">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_5_heading" />
+        </LinearLayout>
+
+        <!-- Note the Android Lint warning on this element regarding the missing contentDescription
+             property. -->
+        <ImageButton
+            android:id="@+id/image_button_example_5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:foreground="@drawable/focus_indicator_selector"
+            android:src="@drawable/ic_share_fill"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_5_heading"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- Good example 6: A \'Share\' icon button with a text alternative -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_6_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_5">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_6_heading" />
+        </LinearLayout>
+
+        <!-- The key technique of Example 6 is setting the contentDescription property on the
+             ImageButton. -->
+        <ImageButton
+            android:id="@+id/image_button_example_6"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:foreground="@drawable/focus_indicator_selector"
+            android:src="@drawable/ic_share_fill"
+            android:contentDescription="@string/text_alternatives_example_6_content_description"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_6_heading"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- Bad example 7: Decorative images without any contentDescription -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_7_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_6">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_7_heading" />
+        </LinearLayout>
+
+        <!-- Note the Android Lint warnings on the enclosed ImageView elements regarding their
+             missing contentDescription properties.
+
+             Omitting contentDescription from ImageView is a bad practice; however, its omission
+             might not become a real accessibility problem if importantForAccessibility was not also
+             set to true on those elements. That said, the behavior of ImageViews without a
+             contentDescription varies by Android and TalkBack version, so it is much better to
+             provide that property and set it to "@null" as in Example 9. -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_7_heading">
+
+            <ImageView
+                android:id="@+id/image_view_example_7a"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:importantForAccessibility="yes"
+                android:src="@drawable/ic_sprout_fill"
+                app:tint="?android:textColorPrimary"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_7"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/text_alternatives_example_7_decorated_text"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_7b"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:importantForAccessibility="yes"
+                android:src="@drawable/ic_sprout_fill"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <!-- Bad example 8: Decorative images with text alternatives -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_8_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_7">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_8_heading" />
+        </LinearLayout>
+
+        <!-- In some ways worse than omitting an ImageView's contentDescription is setting it to
+             an inappropriate value, as is done here. Purely decorative images should not be read
+             by a screen reader, as they add no information and distract the user from the
+             meaningful content. -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_8_heading">
+
+            <ImageView
+                android:id="@+id/image_view_example_8a"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sprout_fill"
+                android:contentDescription="@string/text_alternatives_example_8_content_description"
+                app:tint="?android:textColorPrimary"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_8"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/text_alternatives_example_8_decorated_text"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_8b"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sprout_fill"
+                android:contentDescription="@string/text_alternatives_example_8_content_description"
+                app:tint="?android:textColorPrimary"
+                />
+        </LinearLayout>
+
+        <!-- Good example 9: Decorative images with null contentDescription -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_9_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_8">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_9_heading" />
+        </LinearLayout>
+
+        <!-- The key technique in Example 9 is setting android:contentDescription="@null" in the
+             enclosed decorative ImageView elements (in XML layout). To do the same thing in code,
+             set imageView.contentDescription = null (Kotlin) or
+             imageView.setContentDescription(null) (Java). -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_9_heading">
+
+            <ImageView
+                android:id="@+id/image_view_example_9a"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sprout_fill"
+                android:contentDescription="@null"
+                app:tint="?android:textColorPrimary"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_9"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/text_alternatives_example_9_decorated_text"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_9b"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sprout_fill"
+                android:contentDescription="@null"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <!-- Good example 10: Decorative images with importantForAccessibility=\"no\" -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_10_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_9">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_alternatives_example_10_heading" />
+        </LinearLayout>
+
+        <!-- The key technique in Example 10 is setting android:importantForAccessibility="no" in
+             the enclosed decorative ImageView elements. -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_10_heading">
+
+            <ImageView
+                android:id="@+id/image_view_example_10a"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sprout_fill"
+                android:importantForAccessibility="no"
+                app:tint="?android:textColorPrimary"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_10"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/text_alternatives_example_10_decorated_text"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/image_view_example_10b"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_sprout_fill"
+                android:importantForAccessibility="no"
+                app:tint="?android:textColorPrimary"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_10" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.MainActivity">
+
+    <!--
+         Key technique:
+         Setting touchscreenBlockFocus="false" and keyboardNavigationCluster="false" is required
+         for both AppBarLayout and Toolbar to prevent the appbar from forming a separate keyboard
+         group. This automatic behaviour was added to those elements in Android O and is not
+         necessarily desirable, as a user must use a Start+Tab combination to reach the appbar
+         controls, rather than simply using Tab. In other circumstances, such as multi-panel
+         layouts, keyboard clusters are extremely desirable and can be added using
+         android:keyboardNavigationCluster="true" on each panel's outermost layout element. (In that
+         circumstance, this fix to the AppBarLayout and Toolbar should be removed.)
+    -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:touchscreenBlocksFocus="false"
+        android:keyboardNavigationCluster="false"
+        android:theme="@style/Theme.AndroidViewAccessibilityTechniques.AppBarOverlay"
+        tools:ignore="UnusedAttribute">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:touchscreenBlocksFocus="false"
+            android:keyboardNavigationCluster="false"
+            app:popupTheme="@style/Theme.AndroidViewAccessibilityTechniques.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

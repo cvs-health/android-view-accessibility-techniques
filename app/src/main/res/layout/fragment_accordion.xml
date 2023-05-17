@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.accordion.AccordionFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/accordion_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/accordion_description_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/accordion_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_1"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <LinearLayout
+            android:id="@+id/linear_layout_sections"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_2">
+
+            <!-- Bad example 1: Accordion without expand/collapse actions -->
+            <LinearLayout
+                android:id="@+id/linear_layout_section_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider_section_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_section_1_expand_collapse_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:accessibilityHeading="true"
+                    android:importantForAccessibility="yes"
+                    android:orientation="horizontal"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    android:background="?attr/selectableItemBackground"
+                    tools:ignore="UnusedAttribute">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:backgroundTint="@android:color/transparent"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_close_fill"
+                        android:contentDescription="@null"
+                        app:tint="@color/error_red" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_section_1_heading"
+                        style="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/accordion_section_1" />
+
+                    <ImageView
+                        android:id="@+id/image_section_1_expand_collapse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:backgroundTint="@android:color/transparent"
+                        android:minWidth="48dp"
+                        android:minHeight="48dp"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_plus_fill"
+                        android:contentDescription="@null"
+                        app:tint="?colorPrimary"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_section_1_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:importantForAccessibility="yes"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_item_1_1"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/accordion_item_1_1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_item_1_2"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/accordion_item_1_2" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_item_1_3"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/accordion_item_1_3" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Good example 2: Accordion with expand/collapse actions -->
+            <LinearLayout
+                android:id="@+id/linear_layout_section_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider_section_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_section_2_expand_collapse_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:accessibilityHeading="true"
+                    android:importantForAccessibility="yes"
+                    android:orientation="horizontal"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    android:background="?attr/selectableItemBackground"
+                    tools:ignore="UnusedAttribute">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:backgroundTint="@android:color/transparent"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_check_fill"
+                        android:contentDescription="@null"
+                        app:tint="@color/success_green" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_section_2_heading"
+                        style="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/accordion_section_2" />
+
+                    <ImageView
+                        android:id="@+id/image_section_2_expand_collapse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:backgroundTint="@android:color/transparent"
+                        android:minWidth="48dp"
+                        android:minHeight="48dp"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_plus_fill"
+                        android:contentDescription="@null"
+                        app:tint="?colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_section_2_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:importantForAccessibility="yes"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_item_2_1"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/accordion_item_2_1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_item_2_2"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/accordion_item_2_2" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_item_2_3"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/accordion_item_2_3" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_item_2_4"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/accordion_item_2_4" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider_end"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_sections" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

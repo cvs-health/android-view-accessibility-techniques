@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.arrowkeyfocusorder.ArrowKeyFocusOrderFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/arrow_key_focus_order_heading_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/arrow_key_focus_order_description_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/arrow_key_focus_order_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- OK example 1: Controls with implicit (default) focus order -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_example_1_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_2"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_circle_filled"
+                android:contentDescription="@null"
+                app:tint="@color/success_green"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/arrow_key_focus_order_example_1_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_1_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/arrow_key_focus_order_example_1_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <ImageButton
+            android:id="@+id/image_button_example_1_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_angle_up_fill"
+            android:contentDescription="@string/arrow_key_focus_order_example_move_up"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_1_description"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageButton
+            android:id="@+id/image_button_example_1_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_angle_left_fill"
+            android:contentDescription="@string/arrow_key_focus_order_example_move_left"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_1_up"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageButton
+            android:id="@+id/image_button_example_1_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_angle_right_fill"
+            android:contentDescription="@string/arrow_key_focus_order_example_move_right"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_1_up"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageButton
+            android:id="@+id/image_button_example_1_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_angle_down_fill"
+            android:contentDescription="@string/arrow_key_focus_order_example_move_down"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_1_right"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- Good example 2: Controls with explicit focus order -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_example_2_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_1_down"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/arrow_key_focus_order_example_2_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_2_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/arrow_key_focus_order_example_2_description"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- The key technique in Example 2 is setting android:nextFocusLeft,
+             android:nextFocusRight, android:nextFocusUp, and android:nextFocusDown to produce the
+             desire focus change behaviors for those respective arrow keys. -->
+        <ImageButton
+            android:id="@+id/image_button_example_2_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:nextFocusLeft="@+id/image_button_example_2_left"
+            android:nextFocusRight="@+id/image_button_example_2_right"
+            android:nextFocusDown="@+id/image_button_example_2_down"
+            android:src="@drawable/ic_angle_up_fill"
+            android:contentDescription="@string/arrow_key_focus_order_example_move_up"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_2_description"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageButton
+            android:id="@+id/image_button_example_2_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:nextFocusRight="@+id/image_button_example_2_right"
+            android:nextFocusUp="@+id/image_button_example_2_up"
+            android:nextFocusDown="@+id/image_button_example_2_down"
+            android:src="@drawable/ic_angle_left_fill"
+            android:contentDescription="@string/arrow_key_focus_order_example_move_left"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_2_up"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageButton
+            android:id="@+id/image_button_example_2_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:nextFocusLeft="@+id/image_button_example_2_left"
+            android:nextFocusUp="@+id/image_button_example_2_up"
+            android:nextFocusDown="@+id/image_button_example_2_down"
+            android:src="@drawable/ic_angle_right_fill"
+            android:contentDescription="@string/arrow_key_focus_order_example_move_right"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_2_up"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageButton
+            android:id="@+id/image_button_example_2_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:nextFocusLeft="@+id/image_button_example_2_left"
+            android:nextFocusRight="@+id/image_button_example_2_right"
+            android:nextFocusUp="@+id/image_button_example_2_up"
+            android:src="@drawable/ic_angle_down_fill"
+            android:contentDescription="@string/arrow_key_focus_order_example_move_down"
+            android:foreground="@drawable/focus_indicator_selector"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_2_right"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

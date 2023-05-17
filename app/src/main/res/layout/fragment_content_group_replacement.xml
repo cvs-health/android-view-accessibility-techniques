@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.contentgroupreplacement.ContentGroupReplacementFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/content_group_replacement_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/content_group_replacement_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/content_group_replacement_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Bad example 1: Rating with content ungrouped -->
+        <LinearLayout
+            android:id="@+id/linear_layout_text_rating_group_ungrouped_heading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_2"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_rating_group_ungrouped"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/content_group_replacement_ungrouped_rating_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/rating_section_ungrouped"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_text_rating_group_ungrouped_heading">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_weight="1.0">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_group_replacement_rating_label"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    tools:text="@string/content_group_replacement_rating_label"/>
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/ratingbar_ungrouped"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:numStars="5"
+                    android:rating="3.38"
+                    android:isIndicator="true"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/rating_value_ungrouped"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_group_replacement_rating_text"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    tools:text="3.5 / 5"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reviews_ungrouped"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:layout_weight="1.0"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                tools:text="Reviews: 856"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!-- Bad example 2: Rating with content grouped -->
+        <LinearLayout
+            android:id="@+id/linear_layout_text_rating_group_default_heading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_section_ungrouped"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_rating_group_default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/content_group_replacement_rating_group_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique illustrated in Example 2 is setting
+             android:importantForAccessibility="yes" on the enclosing layout to group the content
+             as a single unit. Sometimes this technique is appropriate and sufficient, but not in
+             this case. How the RatingBar is read by TalkBack actually gets worse in this instance.
+             -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/rating_section_grouped"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_vertical"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_text_rating_group_default_heading">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_weight="1.0">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_group_replacement_rating_label"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    tools:text="@string/content_group_replacement_rating_label"/>
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/ratingbar_grouped"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:numStars="5"
+                    android:rating="3.38"
+                    android:isIndicator="true"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/rating_value_grouped"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_group_replacement_rating_text"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    tools:text="3.5 / 5"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reviews_grouped"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:layout_weight="1.0"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                tools:text="Reviews: 856"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!-- Good example 3: Rating with grouped content replaced -->
+        <LinearLayout
+            android:id="@+id/linear_layout_text_rating_group_customized_heading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_section_grouped"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_rating_group_customized"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/content_group_replacement_rating_group_replaced_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique for Example 3 is shown in ContentGroupReplacementFragment.kt where
+             the outer LinearLayout's contentDescription is set from a localized plurals string
+             containing all of the appropriate data values as substitution parameters. -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/rating_section_customized"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_vertical"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_text_rating_group_customized_heading">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_weight="1.0">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_group_replacement_rating_label"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    tools:text="@string/content_group_replacement_rating_label"/>
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/ratingbar_customized"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:numStars="5"
+                    android:rating="3.4"
+                    android:isIndicator="true"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_rating_value_customized"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    tools:text="3.5 / 5"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reviews_customized"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:layout_weight="1.0"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                tools:text="Reviews: 856"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <FrameLayout
+            android:id="@+id/frame_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_section_grouped" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

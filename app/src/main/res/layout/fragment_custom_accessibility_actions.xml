@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.customaccessibilityactions.CustomAccessibilityActionsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/custom_accessibility_actions_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/custom_accessibility_actions_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Bad example 1: Card without custom accessibility actions -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:strokeColor="@color/focus_indicator_color_state_list"
+            app:strokeWidth="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_card1_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UnusedAttribute">
+
+                    <ImageView
+                        android:id="@+id/image_heading_good"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:backgroundTint="@android:color/transparent"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_close_fill"
+                        android:contentDescription="@null"
+                        app:tint="@color/error_red" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/custom_accessibility_actions_card_without_custom_actions_heading"
+                        style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/card1_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/custom_accessibility_actions_card_without_custom_actions_description"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linear_layout_card1_heading"
+                    style="@style/TextAppearance.MaterialComponents.Body1" />
+
+                <ImageButton
+                    android:id="@+id/button_card1_like"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/custom_accessibility_actions_card_1_like_description"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_plus_fill"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:layout_constraintEnd_toStartOf="@+id/button_card1_share"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card1_description"
+                    app:tint="?colorPrimary"
+                    tools:ignore="UnusedAttribute" />
+
+                <ImageButton
+                    android:id="@+id/button_card1_share"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_share_fill"
+                    android:contentDescription="@string/custom_accessibility_actions_card_1_share_description"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintStart_toEndOf="@+id/button_card1_like"
+                    app:layout_constraintEnd_toStartOf="@+id/button_card1_report"
+                    app:layout_constraintTop_toBottomOf="@+id/card1_description"
+                    tools:ignore="UnusedAttribute" />
+
+                <ImageButton
+                    android:id="@+id/button_card1_report"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_minus_fill"
+                    android:contentDescription="@string/custom_accessibility_actions_card_1_report_description"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintStart_toEndOf="@+id/button_card1_share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card1_description"
+                    tools:ignore="UnusedAttribute" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Good example 2: Card with custom accessibility actions -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:strokeColor="@color/focus_indicator_color_state_list"
+            app:strokeWidth="2dp"
+            android:importantForAccessibility="yes"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_1"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_card2_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UnusedAttribute">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:backgroundTint="@android:color/transparent"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_check_fill"
+                        android:contentDescription="@null"
+                        app:tint="@color/success_green" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_card2_heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/custom_accessibility_actions_card_with_custom_actions_1_heading"
+                        style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/card2_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/custom_accessibility_actions_card_with_custom_actions_1_description"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linear_layout_card2_heading"
+                    style="@style/TextAppearance.MaterialComponents.Body1" />
+
+                <!-- One of the important techniques in Examples 2 and 3 is declaring all clickable
+                     elements as android:importantForAccessibility="false". This property prevents
+                     these elements from appearing individually in Accessibility Services, like the
+                     TalkBack screen reader, while remaining touch clickable and keyboard focusable.
+                     -->
+                <ImageButton
+                    android:id="@+id/button_card2_like"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_plus_fill"
+                    android:importantForAccessibility="no"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_card2_share"
+                    app:layout_constraintTop_toBottomOf="@+id/card2_description"
+                    tools:ignore="UnusedAttribute" />
+
+                <ImageButton
+                    android:id="@+id/button_card2_share"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_share_fill"
+                    android:importantForAccessibility="no"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintStart_toEndOf="@+id/button_card2_like"
+                    app:layout_constraintEnd_toStartOf="@+id/button_card2_report"
+                    app:layout_constraintTop_toBottomOf="@+id/card2_description"
+                    tools:ignore="UnusedAttribute" />
+
+                <ImageButton
+                    android:id="@+id/button_card2_report"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_minus_fill"
+                    android:importantForAccessibility="no"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintStart_toEndOf="@+id/button_card2_share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card2_description"
+                    tools:ignore="UnusedAttribute" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Good example 3: Another card with custom accessibility actions -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:strokeColor="@color/focus_indicator_color_state_list"
+            app:strokeWidth="2dp"
+            android:importantForAccessibility="yes"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_2"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_card3_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UnusedAttribute">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:backgroundTint="@android:color/transparent"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_check_fill"
+                        android:contentDescription="@null"
+                        app:tint="@color/success_green" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_card3_heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/custom_accessibility_actions_card_with_custom_actions_2_heading"
+                        style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/card3_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/custom_accessibility_actions_card_with_custom_actions_2_description"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linear_layout_card3_heading"
+                    style="@style/TextAppearance.MaterialComponents.Body1" />
+
+                <!-- One of the important techniques in Examples 2 and 3 is declaring all clickable
+                     elements as android:importantForAccessibility="false". This property prevents
+                     these elements from appearing individually in Accessibility Services, like the
+                     TalkBack screen reader, while remaining touch clickable and keyboard focusable.
+                     -->
+                <ImageButton
+                    android:id="@+id/button_card3_like"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_plus_fill"
+                    android:importantForAccessibility="no"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_card3_share"
+                    app:layout_constraintTop_toBottomOf="@+id/card3_description"
+                    tools:ignore="UnusedAttribute" />
+
+                <ImageButton
+                    android:id="@+id/button_card3_share"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_share_fill"
+                    android:importantForAccessibility="no"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintStart_toEndOf="@+id/button_card3_like"
+                    app:layout_constraintEnd_toStartOf="@+id/button_card3_report"
+                    app:layout_constraintTop_toBottomOf="@+id/card3_description"
+                    tools:ignore="UnusedAttribute" />
+
+                <ImageButton
+                    android:id="@+id/button_card3_report"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_minus_fill"
+                    android:importantForAccessibility="no"
+                    android:foreground="@drawable/focus_indicator_selector"
+                    app:tint="?colorPrimary"
+                    app:layout_constraintStart_toEndOf="@+id/button_card3_share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card3_description"
+                    tools:ignore="UnusedAttribute" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <FrameLayout
+            android:id="@+id/frame_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

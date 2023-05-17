@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.keyboardfocusorder.KeyboardFocusOrderFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/keyboard_focus_order_heading_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_description_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Bad example 1: Controls in an illogical focus order -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_example_1_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_2"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/keyboard_focus_order_example_1_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_1_group_1_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_group_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_example_1_group_1_control_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/keyboard_focus_order_example_group_1_checkbox_a"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_1_group_1_label"
+            />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_example_1_group_1_control_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/keyboard_focus_order_example_group_1_checkbox_b"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_example_1_group_1_control_a"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_1_group_2_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_group_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_example_1_group_2_control_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_group_2_checkbox_a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_1_group_2_label"
+            />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_example_1_group_2_control_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_group_2_checkbox_b"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_example_1_group_2_control_a"
+            />
+
+        <!-- Problematic example 2: Controls forced into a logical focus order with nextFocusForward
+             and accessibilityTraversalAfter -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_example_2_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_example_1_group_2_control_b"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_circle_filled"
+                android:contentDescription="@null"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/keyboard_focus_order_example_2_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_2_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_2_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_2_group_1_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_group_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_2_description"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- The key techniques used in Example 2 are setting android:nextFocusForward and
+             android:accessibilityTraversalAfter. Of the two, android:accessibilityTraversalAfter is
+             the really problematic property. Reorganize the XML layout instead, as is done in
+              Example 3. -->
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_example_2_group_1_control_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/keyboard_focus_order_example_group_1_checkbox_a"
+            android:nextFocusForward="@+id/checkbox_example_2_group_1_control_b"
+            android:accessibilityTraversalAfter="@id/text_example_2_group_1_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_2_group_1_label"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_example_2_group_1_control_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/keyboard_focus_order_example_group_1_checkbox_b"
+            android:nextFocusForward="@+id/checkbox_example_2_group_2_control_a"
+            android:accessibilityTraversalAfter="@id/checkbox_example_2_group_1_control_a"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_example_2_group_1_control_a"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_2_group_2_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_group_2"
+            android:accessibilityTraversalAfter="@id/checkbox_example_2_group_1_control_b"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_2_description"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_example_2_group_2_control_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_group_2_checkbox_a"
+            android:nextFocusForward="@+id/checkbox_example_2_group_2_control_b"
+            android:accessibilityTraversalAfter="@id/text_example_2_group_2_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_2_group_2_label"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_example_2_group_2_control_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_group_2_checkbox_b"
+            android:nextFocusForward="@+id/checkbox_example_3_group_1_control_a"
+            android:accessibilityTraversalAfter="@id/checkbox_example_2_group_2_control_a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_example_2_group_2_control_a"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- Good example 3: Controls in a logical focus order through layout grouping and
+             nextFocusForward -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_example_3_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            android:accessibilityTraversalAfter="@id/checkbox_example_2_group_2_control_b"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_example_2_group_2_control_b"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/keyboard_focus_order_example_3_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_3_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_3_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- The primary technique in Example 3 is using appropriate layout structure to achieve
+             correct accessibility focus order. This will also generally achieve correct keyboard
+             focus order, but you may find it necessary to also employ android:nextFocusForward for
+             compatibility on older Android versions. -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_example_3_group_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_3_description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_3_group_1_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/keyboard_focus_order_example_group_1"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_example_3_group_1_control_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/keyboard_focus_order_example_group_1_checkbox_a"
+                android:nextFocusForward="@+id/checkbox_example_3_group_1_control_b"
+                />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_example_3_group_1_control_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/keyboard_focus_order_example_group_1_checkbox_b"
+                android:nextFocusForward="@+id/checkbox_example_3_group_2_control_a"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_example_3_group_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_3_description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_example_3_group_2_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="end"
+                android:text="@string/keyboard_focus_order_example_group_2"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_example_3_group_2_control_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/keyboard_focus_order_example_group_2_checkbox_a"
+                android:nextFocusForward="@+id/checkbox_example_3_group_2_control_b"
+                />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_example_3_group_2_control_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/keyboard_focus_order_example_group_2_checkbox_b"
+                android:nextFocusForward="@+id/button_example_4_first"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!-- Bad example 4: A keyboard focus trap -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_example_4_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_group_2"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/keyboard_focus_order_example_4_heading"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_example_4_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_4_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <Button
+            android:id="@+id/button_example_4_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_button_1"
+            android:nextFocusForward="@id/button_example_4_second"
+            app:strokeColor="@color/focus_indicator_color_state_list"
+            app:strokeWidth="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_3" />
+
+        <!-- The key problem with Example 4 is the use of android:nextFocusForward on this element
+             to point backward at a control that uses android:nextFocusForward to point forward to
+             this element. That creates a focus loop and traps the keyboard focus between these two
+             elements. -->
+        <Button
+            android:id="@+id/button_example_4_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_button_2"
+            android:nextFocusForward="@id/button_example_4_first"
+            app:strokeColor="@color/focus_indicator_color_state_list"
+            app:strokeWidth="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_example_4_first" />
+
+        <Button
+            android:id="@+id/button_example_4_third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/keyboard_focus_order_button_3"
+            app:strokeColor="@color/focus_indicator_color_state_list"
+            app:strokeWidth="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_example_4_second" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

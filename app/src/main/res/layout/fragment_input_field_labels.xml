@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.inputfieldlabels.InputFieldLabelsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/input_field_labels_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/input_field_labels_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Bad example 1: EditText without associated field label -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_1_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_1"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_unassociated_edittext_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/input_field_labels_unassociated_edittext_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edittext_unassociated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_unassociated_edittext_label"
+            />
+
+        <!-- Good example 2: EditText with associated field label (labelFor) -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_2_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edittext_unassociated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_2"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique in Example 2 is associating android:labelFor with the id of the
+             following AppCompatEditText field. -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_associated_edittext_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:labelFor="@+id/edittext_associated"
+            android:text="@string/input_field_labels_associated_edittext_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edittext_associated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_associated_edittext_label"
+            />
+
+        <!-- Good example 3: TextInputEditText automatically associates hint -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_3_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edittext_associated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_3"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique in Example 3 is using TextInputLayout with a hint. That hint becomes
+             a label that is programmatically associated with the enclosed TextInputEditText. -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textinputlayout_with_hint_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/input_field_labels_associated_textinputedittext_label"
+            android:textColorHint="#616161"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_heading"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Bad example 4: CheckBox without associated field label -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_4_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textinputlayout_with_hint_label"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_4"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key failure in Example 4 is the use of a separate TextView for the CheckBox label.
+             -->
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_unassociated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_4_heading"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_unassociated_checkbox_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="textStart"
+            android:text="@string/input_field_labels_unassociated_checkbox_label"
+            app:layout_constraintStart_toEndOf="@id/checkbox_unassociated"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/checkbox_unassociated"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Good example 5: CheckBox with associated field label (text) -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_5_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_unassociated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_5"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique in Example 5 is using the android:text property to apply a label to
+             the CheckBox control. -->
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_associated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="@string/input_field_labels_associated_checkbox_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_5_heading"
+            />
+
+        <!-- Bad example 6: Switch without associated field label -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_6_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_associated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_6"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key failure in Example 6 is the use of a separate TextView for the Switch label. -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_unassociated_switch_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="textEnd"
+            android:text="@string/input_field_labels_unassociated_switch_label"
+            app:layout_constraintEnd_toStartOf="@id/switch_unassociated"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/switch_unassociated"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_unassociated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_6_heading"
+            />
+
+        <!-- Good example 7: Switch with associated field label (text) -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_7_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_unassociated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_7"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique in Example 7 is using the android:text property to apply a label to
+             the Switch control. -->
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_associated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="@string/input_field_labels_associated_switch_label"
+            app:switchPadding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_7_heading"
+            />
+
+        <!-- Bad example 8: RadioButton without associated field label -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_8_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_associated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_8"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key failure in Example 8 is the use of a separate TextView for the RadioButton
+             label. -->
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radiobutton_unassociated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_8_heading"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_unassociated_radiobutton_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="textStart"
+            android:text="@string/input_field_labels_unassociated_radio_button_label"
+            app:layout_constraintStart_toEndOf="@id/radiobutton_unassociated"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/radiobutton_unassociated"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Good example 9: RadioButton with associated field label (text) -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_9_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radiobutton_unassociated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_9"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique in Example 9 is using the android:text property to apply a label to
+             the RadioButton control. -->
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radiobutton_associated"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="16sp"
+            android:text="@string/input_field_labels_associated_radio_button_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_9_heading"
+            />
+
+        <!-- Good example 10: Button with associated text label (text) -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_10_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radiobutton_associated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_10"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique in Example 10 is using the android:text property to apply a label to
+             the Button control. -->
+        <Button
+            android:id="@+id/button_associated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/input_field_labels_associated_button_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_10_heading" />
+
+        <!-- OK example 11: Slider with contentDescription and no labelFor.
+
+        Note: Slider accessibility labeling is a mess as of this writing (2022-09-21). See
+        https://github.com/material-components/material-components-android/issues/2348 and
+        https://github.com/material-components/material-components-android/issues/2347 for details.
+        It's a toss-up whether the best approach is to associate a label text with a Slider using
+        labelFor or leave the label text unassociated; either way, a contentDescription on the
+        Slider itself is a must! (Otherwise, only the slider thumb is focusable in TalkBack, which
+        would confuse low vision TalkBack users.)
+
+        (FYI: if there is a contentDescription, then selecting the outer Slider container reads that
+        there's a click action, which there isn't really: double-tapping in TalkBack just beeps.
+        Yet, if you remove ACTION_CLICK, the slider's thumb becomes inaccessible.)
+        -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_11_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_associated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_circle_filled"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_11"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- Sliders require a visual label, provided here. -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_slider_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/input_field_labels_associated_slider_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_11_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- The key technique in Example 11 is setting android:contentDescription on the Slider
+             control. -->
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_associated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:value="20.0"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            android:stepSize="10.0"
+            android:contentDescription="@string/input_field_labels_associated_slider_content_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_slider_label" />
+
+        <!-- Good example 12: Slider with contentDescription and labelFor text -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_12_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/slider_associated"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_12"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The first key technique in Example 12 is associating the visual label TextView with
+             the Slider control using android:labelFor. -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_slider_2_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/input_field_labels_associated_slider_label"
+            android:labelFor="@+id/slider_associated_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_12_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- The second key technique of Example 12 is setting android:contentDescription on the
+             Slider control. -->
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_associated_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:value="20.0"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            android:stepSize="10.0"
+            android:contentDescription="@string/input_field_labels_associated_slider_content_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_slider_2_label" />
+
+        <!-- Good example 13: RangeSlider with contentDescription and labelFor text -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_13_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/slider_associated_2"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_13"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The first key technique in Example 13 is associating the visual label TextView with
+             the RangeSlider control using android:labelFor. -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_range_slider_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/input_field_labels_associated_range_slider_label"
+            android:labelFor="@+id/range_slider_associated"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_13_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- The second key technique of Example 13 is setting android:contentDescription on the
+             RangeSlider control. -->
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/range_slider_associated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            android:stepSize="10.0"
+            android:contentDescription="@string/input_field_labels_associated_range_slider_content_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_range_slider_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

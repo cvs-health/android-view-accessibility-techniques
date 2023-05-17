@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.listsemantics.ListSemanticsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/list_semantics_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/list_semantics_description_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/list_semantics_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_1"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Bad example 1: Visual list without list semantics -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_1_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description_2"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                android:contentDescription="@null"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_list_without_semantics_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:accessibilityHeading="true"
+                android:text="@string/list_semantics_example_1"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                tools:ignore="UnusedAttribute" />
+
+        </LinearLayout>
+
+        <!-- The key problem presented by Example 1 is a visual list the provides no list semantics
+             information to the Accessibility API. That makes it impossible for Accessibility
+             Services, like the TalkBack screen reader, to identify the list to their users as a
+             list.
+
+             This list does illustrate how to create a bullet list with BulletSpan. (That aspect of
+             the example is not visible in the Android Studio Layout Editor preview.) See
+             ListSemanticsFragment.createBulletSpan(@StringRes stringId: Int) for details.
+             -->
+        <LinearLayout
+            android:id="@+id/linearlayout_without_list_semantics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_1_without_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_bad_point_1"
+                android:contentDescription="@string/list_semantics_bad_point_1_alt_text"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_2_without_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_bad_point_2"
+                android:contentDescription="@string/list_semantics_bad_point_2_alt_text"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_3_without_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_bad_point_3"
+                android:contentDescription="@string/list_semantics_bad_point_3_alt_text"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_after_bad_example"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/list_semantics_after_bad_example"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearlayout_without_list_semantics" />
+
+        <!-- Good example 2: Bullet list with list semantics -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_2_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_after_bad_example"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_unnumbered_list_semantics_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:accessibilityHeading="true"
+                android:text="@string/list_semantics_example_2"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                tools:ignore="UnusedAttribute" />
+
+        </LinearLayout>
+
+        <!-- The key technique of Example 2 is using an AccessibilityDelegate to add list
+             semantics information to the wrapping layout. These are done using the helper extension functions
+             LinearLayout.addListSemantics(size: Int) and View.addListItemSemantics(index: Int) from
+             AccessibilityHelper.kt, as applied in ListSemanticsFragment.kt.
+
+             This example also illustrates how to create a bullet list with BulletSpan. See
+             ListSemanticsFragment.createBulletSpan(@StringRes stringId: Int) for details.
+             -->
+        <LinearLayout
+            android:id="@+id/linearlayout_with_unnumbered_list_semantics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:importantForAccessibility="yes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_heading">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_1_with_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_good_point_1"
+                android:contentDescription="@string/list_semantics_good_point_1_alt_text"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_2_with_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_good_point_2"
+                android:contentDescription="@string/list_semantics_good_point_2_alt_text"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_3_with_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_good_point_3"
+                android:contentDescription="@string/list_semantics_good_point_3_alt_text"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_after_list"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/list_semantics_after_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearlayout_with_unnumbered_list_semantics" />
+
+        <!-- Good example 3: Numbered list with list semantics -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_3_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_after_list"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_numbered_list_semantics_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:accessibilityHeading="true"
+                android:text="@string/list_semantics_example_3"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                tools:ignore="UnusedAttribute" />
+
+        </LinearLayout>
+
+        <!-- The key techniques of Example 3 involve using an AccessibilityDelegate to add list
+             semantics information to the wrapping layout and list item semantics information to
+             each bullet point TextView. These are done using the helper extension functions
+             LinearLayout.addListSemantics(size: Int) and View.addListItemSemantics(index: Int) from
+             AccessibilityHelper.kt, as applied in ListSemanticsFragment.kt.
+             -->
+        <LinearLayout
+            android:id="@+id/linearlayout_with_numbered_list_semantics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:importantForAccessibility="yes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_heading">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_1_with_numbered_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_good_point_1_numbered"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_2_with_numbered_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_good_point_2_numbered"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_point_3_with_numbered_semantics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/list_semantics_good_point_3_numbered"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_after_list_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/list_semantics_after_list_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearlayout_with_numbered_list_semantics"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Good example 4: RecyclerView list with list semantics -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_4_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_after_list_2"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_recyclerview_list_semantics_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:accessibilityHeading="true"
+                android:text="@string/list_semantics_example_4"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                tools:ignore="UnusedAttribute" />
+
+        </LinearLayout>
+
+        <!-- The key technique of Example 4 is the use of RecyclerView, which automatically
+             provides list semantics.
+
+             Note: Providing list semantics may not be appropriate if a RecyclerView is used for
+             information that is not presented as a visual list. See Example 5 below.
+
+             Another potential drawback of using a RecyclerView is the items within it can not be
+             effectively marked as accessibility headings and used for navigation by Accessibility
+             Services. The underlying issue is that off-screen list item views may not exist, having
+             been recycled (or not yet created), so they may not be present in the accessibility
+             tree. The application of RecyclerView must be balanced accordingly, but is generally
+             still the best choice for most dynamic visual lists.
+             -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_semantic_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_4_heading"
+            app:layoutManager="LinearLayoutManager"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_after_list_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/list_semantics_after_list_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_semantic_list"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <LinearLayout
+            android:id="@+id/linear_layout_example_5_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_after_list_3"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:accessibilityHeading="true"
+                android:text="@string/list_semantics_example_5"
+                tools:ignore="UnusedAttribute" />
+
+        </LinearLayout>
+
+        <!-- Good example 5: Non-list RecyclerView without list semantics -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_5_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/list_semantics_example_5_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_5_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <!-- Providing list semantics may not be appropriate if a RecyclerView is used for
+             information that is not presented as a visual list.
+
+             The key technique in Example 5 to disable RecyclerView's automatic list semantics is
+             setting android:importantForAccessibility="no".
+
+             Note that this technique may have negative effects on the automatic scrolling of the
+             list in TalkBack. Manually test this technique before adopting it for your use case.
+         -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_non_semantic_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintTop_toBottomOf="@id/text_example_5_description"
+            app:layoutManager="LinearLayoutManager"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_after_list_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/list_semantics_after_list_4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_non_semantic_list"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <FrameLayout
+            android:id="@+id/frame_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_after_list_4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

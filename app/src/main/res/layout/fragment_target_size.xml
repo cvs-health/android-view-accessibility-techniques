@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    tools:context="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.targetsize.TargetSizeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_heading"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:accessibilityHeading="true"
+            android:text="@string/target_size_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/target_size_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_heading" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_description2"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/target_size_description_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description" />
+
+        <!-- Bad example 1: A 16dp by 22dp icon button -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_1_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_fill"
+                app:tint="@color/error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/target_size_example_1_heading" />
+        </LinearLayout>
+
+        <!-- The issue with Example 1 is that this button is smaller than 24dp by 24dp. -->
+        <ImageButton
+            android:id="@+id/image_button_example_1"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="16dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:foreground="@drawable/focus_indicator_selector_bordered"
+            android:src="@drawable/ic_angle_right_outline"
+            android:contentDescription="@string/target_size_example_1_content_description"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_1_heading"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- OK example 2: A 24dp by 24dp icon button -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_2_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_circle_filled"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/target_size_example_2_heading" />
+        </LinearLayout>
+
+        <!-- Example 2 is acceptable (but not good), because this button's drawable's dimensions are
+             exactly 24dp by 24dp, the minimum acceptable touch target size per WCAG 2.2 guidelines,
+             rather than the 44dp by 44dp suggested by WCAG 2.1 Level AAA or the 48dp by 48dp
+             suggested by the Material Design guidelines. -->
+        <ImageButton
+            android:id="@+id/image_button_example_2"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:foreground="@drawable/focus_indicator_selector_bordered"
+            android:src="@drawable/ic_angle_right_outline"
+            android:contentDescription="@string/target_size_example_2_content_description"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_2_heading"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- Good example 3: A 48dp by 48dp icon button using minWidth and minHeight -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_3_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/target_size_example_3_heading" />
+        </LinearLayout>
+
+        <!-- Example 3 is good, because this button's dimension match the 48dp by 48dp suggested by
+             the Material Design guidelines, exceeding those suggested WCAG 2.1 Level AAA. The key
+             technique employed is setting android:minWidth and android:minHeight, which add spacing
+             around the smaller icon drawable. -->
+        <ImageButton
+            android:id="@+id/image_button_example_3"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:background="@android:color/transparent"
+            android:foreground="@drawable/focus_indicator_selector_bordered"
+            android:src="@drawable/ic_angle_right_outline"
+            android:contentDescription="@string/target_size_example_2_content_description"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_3_heading"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- Good example 4: A 48dp by 48dp icon button using layout padding -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_4_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:importantForAccessibility="yes"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_3">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/target_size_example_4_heading" />
+        </LinearLayout>
+
+        <!-- Example 4 is good, because this button's dimension match the 48dp by 48dp suggested by
+             the Material Design guidelines, exceeding those suggested WCAG 2.1 Level AAA. The key
+             technique employed is setting android:padding to 12dp, which adds 24dp horizontally and
+             vertically to the existing 24dp by 24dp drawable, resulting in the 48dp by 48dp total
+             target size. -->
+        <ImageButton
+            android:id="@+id/image_button_example_4"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:background="@android:color/transparent"
+            android:foreground="@drawable/focus_indicator_selector_bordered"
+            android:src="@drawable/ic_angle_right_outline"
+            android:contentDescription="@string/target_size_example_4_content_description"
+            app:tint="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_4_heading"
+            tools:ignore="UnusedAttribute" />
+
+        <FrameLayout
+            android:id="@+id/frame_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_button_example_4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

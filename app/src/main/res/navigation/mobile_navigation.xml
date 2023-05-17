@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2023 CVS Health and/or one of its affiliates
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_textAlternativesFragment"
+            app:destination="@id/nav_text_alternatives" />
+        <action
+            android:id="@+id/action_homeFragment_to_inputFieldLabelsFragment"
+            app:destination="@id/nav_input_field_labels" />
+        <action
+            android:id="@+id/action_homeFragment_to_tapTargetGroupingFragment"
+            app:destination="@id/nav_tap_target_grouping" />
+        <action
+            android:id="@+id/action_homeFragment_to_contentGroupingFragment"
+            app:destination="@id/nav_content_grouping" />
+        <action
+            android:id="@+id/action_homeFragment_to_contentGroupReplacementFragment"
+            app:destination="@id/nav_content_group_replacement" />
+        <action
+            android:id="@+id/action_homeFragment_to_headingSemanticsFragment"
+            app:destination="@id/nav_heading_semantics" />
+        <action
+            android:id="@+id/action_homeFragment_to_listSemanticsFragment"
+            app:destination="@id/nav_list_semantics" />
+        <action
+            android:id="@+id/action_homeFragment_to_focusableControlsFragment"
+            app:destination="@id/nav_focusable_controls" />
+        <action
+            android:id="@+id/action_homeFragment_to_uxChangeAnnouncementsFragment"
+            app:destination="@id/nav_ux_change_announcements" />
+        <action
+            android:id="@+id/action_homeFragment_to_inputErrorAnnouncementsFragment"
+            app:destination="@id/nav_input_error_announcements" />
+        <action
+            android:id="@+id/action_homeFragment_to_textResizingFragment"
+            app:destination="@id/nav_text_resizing" />
+        <action
+            android:id="@+id/action_homeFragment_to_accessibilityReadingOrderFragment"
+            app:destination="@id/nav_accessibility_reading_order" />
+        <action
+            android:id="@+id/action_homeFragment_to_keyboardFocusOrderFragment"
+            app:destination="@id/nav_keyboard_focus_order" />
+        <action
+            android:id="@+id/action_homeFragment_to_arrowKeyFocusOrderFragment"
+            app:destination="@id/nav_arrow_key_focus_order" />
+        <action
+            android:id="@+id/action_homeFragment_to_focusVisibilityFragment"
+            app:destination="@id/nav_focus_visibility" />
+        <action
+            android:id="@+id/action_homeFragment_to_targetSizeFragment"
+            app:destination="@id/nav_target_size" />
+        <action
+            android:id="@+id/action_homeFragment_to_animationControlFragment"
+            app:destination="@id/nav_animation_control" />
+        <action
+            android:id="@+id/action_homeFragment_to_accessibilityActionLabelsFragment"
+            app:destination="@id/nav_accessibility_action_labels" />
+        <action
+            android:id="@+id/action_homeFragment_to_customStateDescriptionsFragment"
+            app:destination="@id/nav_custom_state_descriptions" />
+        <action
+            android:id="@+id/action_homeFragment_to_customAccessibilityActionsFragment"
+            app:destination="@id/nav_custom_accessibility_actions" />
+        <action
+            android:id="@+id/action_homeFragment_to_accordionFragment"
+            app:destination="@id/nav_accordion" />
+        <action
+            android:id="@+id/action_homeFragment_to_autocompleteFragment"
+            app:destination="@id/nav_autocomplete" />
+        <action
+            android:id="@+id/action_homeFragment_to_autofillFragment"
+            app:destination="@id/nav_autofill" />
+        <action
+            android:id="@+id/action_homeFragment_to_dropdownFragment"
+            app:destination="@id/nav_dropdown" />
+        <action
+            android:id="@+id/action_homeFragment_to_keyboardTypeFragment"
+            app:destination="@id/nav_keyboard_type" />
+        <action
+            android:id="@+id/action_homeFragment_to_inlineLinksFragment"
+            app:destination="@id/nav_inline_links" />
+        <action
+            android:id="@+id/action_homeFragment_to_languageIdentificationFragment"
+            app:destination="@id/nav_language_identification" />
+        <action
+            android:id="@+id/action_homeFragment_to_darkThemeFragment"
+            app:destination="@id/nav_dark_theme" />
+        <action
+            android:id="@+id/action_homeFragment_to_orientationFragment"
+            app:destination="@id/nav_orientation" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_text_alternatives"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.textalternatives.TextAlternativesFragment"
+        android:label="@string/menu_text_alternatives"
+        tools:layout="@layout/fragment_text_alternatives" />
+
+    <fragment
+        android:id="@+id/nav_input_field_labels"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.inputfieldlabels.InputFieldLabelsFragment"
+        android:label="@string/menu_input_field_labels"
+        tools:layout="@layout/fragment_input_field_labels" />
+
+    <fragment
+        android:id="@+id/nav_tap_target_grouping"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.taptargetgrouping.TapTargetGroupingFragment"
+        android:label="@string/menu_tap_target_grouping"
+        tools:layout="@layout/fragment_tap_target_grouping" />
+
+    <fragment
+        android:id="@+id/nav_content_grouping"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.contentgrouping.ContentGroupingFragment"
+        android:label="@string/menu_content_grouping"
+        tools:layout="@layout/fragment_content_grouping" />
+
+    <fragment
+        android:id="@+id/nav_content_group_replacement"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.contentgroupreplacement.ContentGroupReplacementFragment"
+        android:label="@string/menu_content_group_replacement"
+        tools:layout="@layout/fragment_content_group_replacement" />
+
+    <fragment
+        android:id="@+id/nav_heading_semantics"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.headingsemantics.HeadingSemanticsFragment"
+        android:label="@string/menu_heading_semantics"
+        tools:layout="@layout/fragment_heading_semantics" />
+
+    <fragment
+        android:id="@+id/nav_list_semantics"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.listsemantics.ListSemanticsFragment"
+        android:label="@string/menu_list_semantics"
+        tools:layout="@layout/fragment_list_semantics" />
+
+    <fragment
+        android:id="@+id/nav_focusable_controls"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.focusablecontrols.FocusableControlsFragment"
+        android:label="@string/menu_focusable_controls"
+        tools:layout="@layout/fragment_focusable_controls" />
+
+    <fragment
+        android:id="@+id/nav_ux_change_announcements"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.uxchangeannouncements.UxChangeAnnouncementsFragment"
+        android:label="@string/menu_ux_change_announcements"
+        tools:layout="@layout/fragment_ux_change_announcements" />
+
+    <fragment
+        android:id="@+id/nav_input_error_announcements"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.inputerrorannouncements.InputErrorAnnouncementsFragment"
+        android:label="@string/menu_input_error_announcements"
+        tools:layout="@layout/fragment_input_error_announcements" />
+
+    <fragment
+        android:id="@+id/nav_accessibility_reading_order"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.accessibilityreadingorder.AccessibilityReadingOrderFragment"
+        android:label="@string/menu_accessibility_reading_order"
+        tools:layout="@layout/fragment_accessibility_reading_order" />
+
+    <fragment
+        android:id="@+id/nav_text_resizing"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.textresizing.TextResizingFragment"
+        android:label="@string/menu_text_resizing"
+        tools:layout="@layout/fragment_text_resizing" />
+
+    <fragment
+        android:id="@+id/nav_keyboard_focus_order"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.keyboardfocusorder.KeyboardFocusOrderFragment"
+        android:label="@string/menu_keyboard_focus_order"
+        tools:layout="@layout/fragment_keyboard_focus_order" />
+
+    <fragment
+        android:id="@+id/nav_arrow_key_focus_order"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.arrowkeyfocusorder.ArrowKeyFocusOrderFragment"
+        android:label="@string/menu_arrow_key_focus_order"
+        tools:layout="@layout/fragment_arrow_key_focus_order" />
+
+    <fragment
+        android:id="@+id/nav_focus_visibility"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.focusvisibility.FocusVisibilityFragment"
+        android:label="@string/menu_focus_visibility"
+        tools:layout="@layout/fragment_focus_visibility" />
+
+    <fragment
+        android:id="@+id/nav_target_size"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.targetsize.TargetSizeFragment"
+        android:label="@string/menu_target_size"
+        tools:layout="@layout/fragment_target_size" />
+
+    <fragment
+        android:id="@+id/nav_animation_control"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.animationcontrol.AnimationControlFragment"
+        android:label="@string/menu_animation_control"
+        tools:layout="@layout/fragment_animation_control" />
+
+    <fragment
+        android:id="@+id/nav_accessibility_action_labels"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.accessibilityactionlabels.AccessibilityActionLabelsFragment"
+        android:label="@string/menu_accessibility_action_labels"
+        tools:layout="@layout/fragment_accessibility_action_labels" />
+
+    <fragment
+        android:id="@+id/nav_custom_state_descriptions"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.customstatedescriptions.CustomStateDescriptionsFragment"
+        android:label="@string/menu_custom_state_descriptions"
+        tools:layout="@layout/fragment_custom_state_descriptions" />
+
+    <fragment
+        android:id="@+id/nav_custom_accessibility_actions"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.customaccessibilityactions.CustomAccessibilityActionsFragment"
+        android:label="@string/menu_custom_accessibility_actions"
+        tools:layout="@layout/fragment_custom_accessibility_actions" />
+
+    <fragment
+        android:id="@+id/nav_accordion"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.accordion.AccordionFragment"
+        android:label="@string/menu_accordion"
+        tools:layout="@layout/fragment_accordion" />
+
+    <fragment
+        android:id="@+id/nav_autocomplete"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.autocomplete.AutoCompleteFragment"
+        android:label="@string/menu_autocomplete"
+        tools:layout="@layout/fragment_auto_complete" />
+
+    <fragment
+        android:id="@+id/nav_autofill"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.autofill.AutofillFragment"
+        android:label="@string/menu_autofill"
+        tools:layout="@layout/fragment_autofill" />
+
+    <fragment
+        android:id="@+id/nav_dropdown"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.dropdown.DropdownFragment"
+        android:label="@string/menu_dropdown"
+        tools:layout="@layout/fragment_dropdown" />
+
+    <fragment
+        android:id="@+id/nav_keyboard_type"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.keyboardtype.KeyboardTypeFragment"
+        android:label="@string/menu_keyboard_type"
+        tools:layout="@layout/fragment_keyboard_type" />
+
+    <fragment
+        android:id="@+id/nav_inline_links"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.inlinelinks.InlineLinksFragment"
+        android:label="@string/menu_inline_links"
+        tools:layout="@layout/fragment_inline_links" />
+
+    <fragment
+        android:id="@+id/nav_language_identification"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.languageidentification.LanguageIdentificationFragment"
+        android:label="@string/menu_language_identification"
+        tools:layout="@layout/fragment_language_identification" />
+
+    <fragment
+        android:id="@+id/nav_dark_theme"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.darktheme.DarkThemeFragment"
+        android:label="@string/menu_dark_theme"
+        tools:layout="@layout/fragment_dark_theme" />
+
+    <fragment
+        android:id="@+id/nav_orientation"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.orientation.OrientationFragment"
+        android:label="@string/menu_orientation"
+        tools:layout="@layout/fragment_orientation" />
+</navigation>
