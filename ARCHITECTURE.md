@@ -45,3 +45,19 @@ The following process is suggested for adding a new screen to the application. T
 8. Edit app/main/res/layout/fragment\_home.xml to copy a card, adjust it to the new screen name, and place it in the appropriate layout location.
 9. Add a line to HomeFragment.kt to navigate from the new card to the new fragment using the new navigation activity using the applyNavigation() extension function.
 10. Build, run, and test the app.
+
+----
+
+Copyright 2023 CVS Health and/or one of its affiliates
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+[http://www.apache.org/licenses/LICENSE-2.0]()
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+See the License for the specific language governing permissions and
+limitations under the License.

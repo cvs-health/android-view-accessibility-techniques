@@ -49,6 +49,11 @@ Since some of the code demonstrates the effect of inaccessible coding practices,
 <img src="doc/images/HomeCollapsed.png" width=50% height=50% alt="android-view-accessibility-techniques Home screen collapsed to show only the 4 top-level accessibility topic headings">
 <img src="doc/images/HomeExpanded.png" width=50% height=50% alt="android-view-accessibility-techniques Home screen expanded to show 29 accessibility technique topics">
 
+## Contributor Guide
+
+1. Before contributing to this CVS Health sponsored project, you will need to sign the associated [Contributor License Agreement](https://forms.office.com/r/DA5XULNs4W).
+2. See [contributing](CONTRIBUTING.md) page.
+
 ## License
 android-view-accessibility-techniques is licensed under under the Apache License, Version 2.0.  See LICENSE file for more information. 
 
