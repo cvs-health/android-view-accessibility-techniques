@@ -1,7 +1,7 @@
 # Custom Focus Indicators
-By default, all standard Android control types have focus indicators which display when keyboard focus is on a control. However, the default focus indicators are generally low-contrast, which makes the focussed control very hard to identify for keyboard users with low vision. Applying custom focus indicators is one way to better support those users in accordance with the WCAG 2 [Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible) and the (forthcoming) WCAG 2.2 [Success Criterion 2.4.11 Focus Appearance](https://w3c.github.io/wcag/guidelines/22/#focus-appearance).
+By default, all standard Android control types have focus indicators which display when keyboard focus is on a control. However, the default focus indicators are generally low-contrast, which makes the focussed control very hard to identify for keyboard users with low vision. Applying custom focus indicators is one way to better support those users in accordance with the WCAG 2 [Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible) and the WCAG 2.2 [Success Criterion 2.4.13 Focus Appearance](https://www.w3.org/TR/WCAG22/#focus-appearance) (Level AAA).
 
-(Note that using the default focus indicator is in technical conformance with WCAG 2.2 [Success Criterion 2.4.11 Focus Appearance](https://w3c.github.io/wcag/guidelines/22/#focus-appearance), but it provides a poor user experience for keyboard users.)
+(Note that using the default focus indicator is in technical conformance with WCAG 2.2 [Success Criterion 2.4.13 Focus Appearance](https://www.w3.org/TR/WCAG22/#focus-appearance) (Level AAA), but it provides a poor user experience for keyboard users.)
 
 There are several techniques available to customize the focus indicators for controls; although, some techniques work better for particular controls than others.
 

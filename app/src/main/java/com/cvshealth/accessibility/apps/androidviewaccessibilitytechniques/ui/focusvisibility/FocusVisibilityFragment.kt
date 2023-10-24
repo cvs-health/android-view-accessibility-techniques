@@ -29,7 +29,7 @@ import com.google.android.material.snackbar.Snackbar
 /**
  * Fragment with problematic and good examples of keyboard focus indicator practices. These
  * techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#focus-visible">Success Criterion 2.4.7 Focus Visible</a>
- * and the (forthcoming) WCAG 2.2 <a href="https://w3c.github.io/wcag/guidelines/22/#focus-appearance">Success Criterion 2.4.11 Focus Appearance</a>.
+ * and the WCAG 2.2 <a href="https://www.w3.org/TR/WCAG22/#focus-appearance">Success Criterion 2.4.13 Focus Appearance</a> (Level AAA).
  *
  * See the associated XML layout file, fragment_focus_visibility.xml, for all important techniques.
  */

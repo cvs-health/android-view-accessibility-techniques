@@ -30,7 +30,7 @@ import com.google.android.material.snackbar.Snackbar
  * Fragment with problematic and good examples of keyboard focus indicator practices. These
  * techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#target-size">Success Criterion 2.5.5 Target Size</a> (Level AAA),
  * Material Design guidelines <a href="https://m2.material.io/design/usability/accessibility.html#layout-and-typography">Touch and pointer targets</a>,
- * and the (forthcoming) WCAG 2.2 <a href="https://w3c.github.io/wcag/guidelines/22/#target-size-minimum">Success Criterion 2.5.8 Target Size (Minimum)</a> (Level AA).
+ * and the WCAG 2.2 <a href="https://www.w3.org/TR/WCAG22/#target-size-minimum">Success Criterion 2.5.8 Target Size (Minimum)</a> (Level AA).
  *
  * See the associated XML layout file, fragment_target_size.xml, for all important techniques.
  */

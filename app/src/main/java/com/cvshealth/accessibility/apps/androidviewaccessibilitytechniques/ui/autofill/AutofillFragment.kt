@@ -30,7 +30,7 @@ import com.google.android.material.tabs.TabLayout
 /**
  * Fragment with good examples of applying autofill to input controls in support of the WCAG 2.x
  * <a href="https://www.w3.org/TR/WCAG21/#identify-purpose">Success Criterion 1.3.5 Identify Input Purpose</a>
- * and the (forthcoming) WCAG 2.2 <a href="https://w3c.github.io/wcag/guidelines/22/#redundant-entry">Success Criterion 3.3.9 Redundant Entry</a>.
+ * and the WCAG 2.2 <a href="https://www.w3.org/TR/WCAG22/#redundant-entry">Success Criterion 3.3.7 Redundant Entry</a>.
  *
  * See the associated XML layout file, fragment_autofill.xml, for the key techniques of
  * applying android:inputType and android:autofillHints to input fields. See defaultText() and

@@ -1,5 +1,5 @@
 # Autofill Input Fields
-Whenever possible, supply known data values to input fields to reduce redundant data entry. This is done in support of the WCAG 2 [Success Criterion 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG21/#identify-input-purpose) and the (forthcoming) WCAG 2.2 [Success Criterion 3.3.7 Redundant Entry](https://w3c.github.io/wcag/guidelines/22/#redundant-entry).
+Whenever possible, supply known data values to input fields to reduce redundant data entry. This is done in support of the WCAG 2 [Success Criterion 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG21/#identify-input-purpose) and the WCAG 2.2 [Success Criterion 3.3.7 Redundant Entry](https://www.w3.org/TR/WCAG22/#redundant-entry).
 
 Two approaches to auto-filling input field values are to provide hints to an Autofill Service and to supply known application data.
 
