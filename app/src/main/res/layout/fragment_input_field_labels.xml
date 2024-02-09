@@ -453,7 +453,7 @@
             app:layout_constraintTop_toBottomOf="@id/linear_layout_example_7_heading"
             />
 
-        <!-- Bad example 8: RadioButton without associated field label -->
+        <!-- Bad example 8: RadioButtons without associated field labels -->
         <LinearLayout
             android:id="@+id/linear_layout_example_8_heading"
             android:layout_width="match_parent"
@@ -485,34 +485,70 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/input_field_labels_example_8"
                 style="@style/TextAppearance.MaterialComponents.Headline6" />
-
         </LinearLayout>
 
-        <!-- The key failure in Example 8 is the use of a separate TextView for the RadioButton
-             label. -->
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radiobutton_unassociated"
-            android:layout_width="wrap_content"
+        <!-- The first key failure of Example 8 is that the radio buttons are not
+             enclosed in a <RadioGroup>, so they will not receive list semantics
+             and their single-selection behavior must be explicitly implemented
+             instead of letting the RadioGroup control handle it. -->
+        <LinearLayout
+            android:id="@+id/radio_button_unassociated_row_1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp"
+            android:layout_gravity="center_vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_8_heading"
-            />
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/text_unassociated_radiobutton_label"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="textStart"
-            android:text="@string/input_field_labels_unassociated_radio_button_label"
-            app:layout_constraintStart_toEndOf="@id/radiobutton_unassociated"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@+id/radiobutton_unassociated"
-            style="@style/TextAppearance.MaterialComponents.Body1" />
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_8_heading"
+            >
+            <!-- The second key failure in Example 8 is the use of a separate TextView for the
+                 RadioButton label instead of using the RadioButton text attribute. -->
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radiobutton_unassociated_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:gravity="center"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:text="@string/input_field_labels_unassociated_radio_button_label_1"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/radio_button_unassociated_row_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_button_unassociated_row_1"
+            >
+            <!-- The second key failure in Example 8 is the use of a separate TextView for the
+                 RadioButton label instead of using the RadioButton text attribute. -->
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radiobutton_unassociated_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:gravity="center"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:text="@string/input_field_labels_unassociated_radio_button_label_2"
+                style="@style/TextAppearance.MaterialComponents.Body1" />
+        </LinearLayout>
 
         <!-- Good example 9: RadioButton with associated field label (text) -->
         <LinearLayout
@@ -525,7 +561,7 @@
             android:accessibilityHeading="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radiobutton_unassociated"
+            app:layout_constraintTop_toBottomOf="@id/radio_button_unassociated_row_2"
             tools:ignore="UnusedAttribute">
 
             <ImageView
@@ -549,22 +585,38 @@
 
         </LinearLayout>
 
-        <!-- The key technique in Example 9 is using the android:text property to apply a label to
-             the RadioButton control. -->
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radiobutton_associated"
+        <!-- The first key technique of Example 9 is enclosing the RadioButtons in a <RadioGroup>,
+             so they will receive list semantics and their single-selection behavior is
+             automatically handled. -->
+        <RadioGroup
+            android:id="@+id/radio_group_associated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textSize="16sp"
-            android:text="@string/input_field_labels_associated_radio_button_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linear_layout_example_9_heading"
-            />
+            >
+            <!-- The second key technique in Example 9 is using the android:text property to apply a label to
+                 the RadioButton control. -->
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radiobutton_associated_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/input_field_labels_associated_radio_button_label_1"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radiobutton_associated_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/input_field_labels_associated_radio_button_label_2"
+                />
+        </RadioGroup>
 
         <!-- Good example 10: Button with associated text label (text) -->
         <LinearLayout
@@ -577,7 +629,7 @@
             android:accessibilityHeading="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radiobutton_associated"
+            app:layout_constraintTop_toBottomOf="@id/radio_group_associated"
             tools:ignore="UnusedAttribute">
 
             <ImageView

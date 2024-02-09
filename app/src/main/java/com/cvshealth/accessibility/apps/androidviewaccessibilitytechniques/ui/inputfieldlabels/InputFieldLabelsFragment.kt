@@ -23,6 +23,8 @@ import androidx.fragment.app.Fragment
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.databinding.FragmentInputFieldLabelsBinding
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAsAccessibilityHeading
 
+const val UNGROUPED_RADIOBUTTON_SELECTED = "ungrouped_radiobutton_selected"
+
 /**
  * Fragment with examples of bad and good practices of programmatically associating labels with
  * input fields. These techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">Success Criterion 1.3.1 Info and Relationships</a>.
@@ -37,12 +39,18 @@ class InputFieldLabelsFragment : Fragment() {
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
+    // Hold the selected state of the unassociated radio buttons in Example 8.
+    private var ungroupedRadioButtonSelected: Int = 0
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // For key techniques, see class-level KDoc and associated XML layout file.
+
+        // Restore selection state of unassociated radio buttons in Example 8.
+        ungroupedRadioButtonSelected = savedInstanceState?.getInt(UNGROUPED_RADIOBUTTON_SELECTED) ?: 0
 
         _binding = FragmentInputFieldLabelsBinding.inflate(inflater, container, false)
         binding.textHeading.setAsAccessibilityHeading()
@@ -59,9 +67,32 @@ class InputFieldLabelsFragment : Fragment() {
         binding.linearLayoutExample11Heading.setAsAccessibilityHeading()
         binding.linearLayoutExample12Heading.setAsAccessibilityHeading()
         binding.linearLayoutExample13Heading.setAsAccessibilityHeading()
+
+        // Handle single-selection of unassociated radio buttons in Example 8.
+        // Note: This is a example of bad practice: the RadioGroup control should be used instead.
+        binding.radiobuttonUnassociated1.isChecked = ungroupedRadioButtonSelected == 1
+        binding.radiobuttonUnassociated2.isChecked = ungroupedRadioButtonSelected == 2
+        binding.radiobuttonUnassociated1.setOnClickListener {
+            ungroupedRadioButtonSelected = 1
+            binding.radiobuttonUnassociated1.isChecked = true
+            binding.radiobuttonUnassociated2.isChecked = false
+        }
+        binding.radiobuttonUnassociated2.setOnClickListener {
+            ungroupedRadioButtonSelected = 2
+            binding.radiobuttonUnassociated1.isChecked = false
+            binding.radiobuttonUnassociated2.isChecked = true
+        }
+
+        // Set initial RangeSlide selected values in Example 13.
         binding.rangeSliderAssociated.values = listOf(20.0f, 50.0f)
 
         return binding.root
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // Preserve selection state of unassociated radio buttons in Example 8.
+        outState.putInt(UNGROUPED_RADIOBUTTON_SELECTED, ungroupedRadioButtonSelected)
     }
 
     override fun onDestroyView() {

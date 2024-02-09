@@ -33,6 +33,8 @@ The `TextInputLayout`/`TextInputEditText` combined input field control associate
 
 The `CheckBox`, `SwitchCompat`/`SwitchMaterial`, `RadioButton`, and `Button` controls all use the `android:text` property to display a label associated with the control.
 
+Note that `RadioButton` controls must always be enclosed in a `RadioGroup` control for proper operation and accessibility.
+
 ```
 <CheckBox
     android:id="@+id/labels_checkbox"
