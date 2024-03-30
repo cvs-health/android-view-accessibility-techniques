@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -103,6 +103,9 @@
         <action
             android:id="@+id/action_homeFragment_to_inlineLinksFragment"
             app:destination="@id/nav_inline_links" />
+        <action
+            android:id="@+id/action_homeFragment_to_ratingBarControlsFragment"
+            app:destination="@id/nav_rating_bar_controls" />
         <action
             android:id="@+id/action_homeFragment_to_languageIdentificationFragment"
             app:destination="@id/nav_language_identification" />
@@ -269,6 +272,12 @@
         android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.inlinelinks.InlineLinksFragment"
         android:label="@string/menu_inline_links"
         tools:layout="@layout/fragment_inline_links" />
+
+    <fragment
+        android:id="@+id/nav_rating_bar_controls"
+        android:name="com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.ui.ratingbarcontrols.RatingBarControlsFragment"
+        android:label="@string/menu_ratingbar_controls"
+        tools:layout="@layout/fragment_rating_bar_controls" />
 
     <fragment
         android:id="@+id/nav_language_identification"

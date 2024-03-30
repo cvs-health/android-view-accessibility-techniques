@@ -31,7 +31,7 @@ import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAs
  * The key technique of Example 3 is shown below. Additional discussion of all examples is in the
  * associated layout file: fragment_content_group_replacement.xml.
  */
-class ContentGroupReplacementFragment  : Fragment() {
+class ContentGroupReplacementFragment : Fragment() {
 
     private var _binding: FragmentContentGroupReplacementBinding? = null
 

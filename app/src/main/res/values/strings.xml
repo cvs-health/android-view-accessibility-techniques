@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -102,12 +102,12 @@
     <string name="tap_target_grouping_description_1">If two tappable elements perform the same operation and are in visual proximity, they should be combined to form a larger tap target with a common description.</string>
     <string name="tap_target_grouping_description_2">Turn on TalkBack and swipe through this page and activate the tappable controls to see examples of uncombined and combined tap targets.</string>
     <string name="tap_target_grouping_example_1_heading">Bad example 1: Ungrouped tap targets</string>
-    <string name="tap_target_grouping_target_image_alt_text">App information</string>
-    <string name="tap_target_grouping_target_text">App information</string>
+    <string name="tap_target_grouping_target_image_alt_text">Show app information</string>
+    <string name="tap_target_grouping_target_text">Show app information</string>
     <string name="tap_target_grouping_example_1_description">Note how ungrouped tap targets can read redundantly, as well as creating more, smaller selection areas.</string>
     <string name="tap_target_grouping_ungrouped_target_snackbar_message">One of the ungrouped example tap targets was selected.</string>
     <string name="tap_target_grouping_example_2_heading">Good example 2: Grouped tap targets</string>
-    <string name="tap_target_grouping_grouped_target_text">App information</string>
+    <string name="tap_target_grouping_grouped_target_text">Show app information</string>
     <string name="tap_target_grouping_example_2_description">Note how grouping the tap targets creates a larger TalkBack tap target and fewer tap targets overall.</string>
     <string name="tap_target_grouping_grouped_target_snackbar_message">The grouped example tap target was selected.</string>
 
@@ -238,23 +238,23 @@
     <string name="focusable_controls_description_2">If an element uses an onTouchListener, it will not be activatable by either the keyboard or an accessibility service. Use an onClickListener instead.</string>
     <string name="focusable_controls_description_3">Tap any \"+\" icon to see a snackbar. Use Switch Access to select all active controls and activate them. Use a Bluetooth keyboard to Tab through the page also, focusing and activating each control. (You may need to scroll the view to locate focusable icons.) Note which icons are focusable and activatable with each method.</string>
     <string name="focusable_controls_example_1_heading">Bad example 1: Non-focusable ImageView with onTouchListener</string>
-    <string name="focusable_controls_example_1_image_alt_text">Tap me!</string>
+    <string name="focusable_controls_example_1_image_alt_text">Tap this non-focusable ImageView with onTouchListener to display a Snackbar</string>
     <string name="focusable_controls_example_1_message">Example 1 ImageView with onTouchListener tapped.</string>
     <string name="focusable_controls_example_1_description">An ImageView with onTouchListener is not focusable or activatable with keyboard or Switch Access. It does not announce as actionable in TalkBack, but does activate on double-tap when selected.</string>
     <string name="focusable_controls_example_2_heading">Bad example 2: Focusable ImageView with onTouchListener</string>
-    <string name="focusable_controls_example_2_image_alt_text">Tap me!</string>
+    <string name="focusable_controls_example_2_image_alt_text">Tap this focusable ImageView with onTouchListener to display a Snackbar</string>
     <string name="focusable_controls_example_2_message">Example 2 Focusable ImageView with onTouch handler tapped.</string>
     <string name="focusable_controls_example_2_description">An ImageView with onTouchListener and android:focusable=\"true\" is focusable using the keyboard, but not with Switch Access. It is not activatable with the keyboard or Switch Access. It does not announce as actionable in TalkBack, but does activate on double-tap when selected.</string>
     <string name="focusable_controls_example_3_heading">Bad example 3: ImageButton with onTouchListener</string>
-    <string name="focusable_controls_example_3_image_alt_text">Tap me!</string>
+    <string name="focusable_controls_example_3_image_alt_text">Tap this ImageButton with onTouchListener to display a Snackbar</string>
     <string name="focusable_controls_example_3_message">Example 3 ImageButton with onTouch handler tapped.</string>
     <string name="focusable_controls_example_3_description">An ImageButton with onTouchListener is focusable using the keyboard and Switch Access, but it is not activatable with either. It announces as actionable in TalkBack, but does not activate on double-tap when selected.</string>
     <string name="focusable_controls_example_4_heading">Good example 4: Focuable ImageView with onClickListener</string>
-    <string name="focusable_controls_example_4_image_alt_text">Click me!</string>
+    <string name="focusable_controls_example_4_image_alt_text">Click this focuable ImageView with onClickListener to display a Snackbar</string>
     <string name="focusable_controls_example_4_message">Example 4 ImageView with onClickListener activated.</string>
     <string name="focusable_controls_example_4_description">An ImageView with android:focusable=\"true\" and onClickListener is focusable and activatable using the keyboard, Switch Access, and TalkBack.</string>
     <string name="focusable_controls_example_5_heading">Good example 5: ImageButton with onClickListener</string>
-    <string name="focusable_controls_example_5_image_alt_text">Click me!</string>
+    <string name="focusable_controls_example_5_image_alt_text">Click this ImageButton with onClickListener to display a Snackbar</string>
     <string name="focusable_controls_example_5_message">Example 5 ImageButton with onClickListener activated.</string>
     <string name="focusable_controls_example_5_description">An ImageButton with onClickListener is focusable and activatable using the keyboard, Switch Access, and TalkBack.</string>
 
@@ -399,20 +399,20 @@
     <!-- Minimum touch target size -->
     <string name="menu_target_size">Minimum touch target size</string>
     <string name="target_size_heading">Touch target sizes should be at least 48dp by 48dp</string>
-    <string name="target_size_description">WCAG 2.2 guidelines require that touch target sizes be a minimum of 24 by 24 CSS pixels and suggest at least 44 by 44 CSS pixels. Android Material Design guidelines suggest that touch target sizes be at least 48dp by 48dp.</string>
+    <string name="target_size_description">Current WCAG guidelines require that touch target sizes be a minimum of 24 by 24 CSS pixels and suggest at least 44 by 44 CSS pixels. Android Material Design guidelines suggest that touch target sizes be at least 48dp by 48dp.</string>
     <string name="target_size_description_2">Tap the example icon buttons below and note their relative ease or difficulty. The buttons are bordered to show their tap target area.</string>
     <string name="target_size_example_1_heading">Bad example 1: A 16dp by 22dp icon button</string>
-    <string name="target_size_example_1_content_description">Show more details.</string>
-    <string name="target_size_example_1_message">Tapped the 16dp by 22dp icon button.</string>
+    <string name="target_size_example_1_content_description">Show more details about a 16dp by 22dp icon button</string>
+    <string name="target_size_example_1_message">Tapped the 16dp by 22dp icon button, which is too small by WCAG standards.</string>
     <string name="target_size_example_2_heading">OK example 2: A 24dp by 24dp icon button</string>
-    <string name="target_size_example_2_content_description">Show more details.</string>
-    <string name="target_size_example_2_message">Tapped the 24dp by 24dp icon button.</string>
+    <string name="target_size_example_2_content_description">Show more details about a 24dp by 24dp icon button</string>
+    <string name="target_size_example_2_message">Tapped the 24dp by 24dp icon button, which is the WCAG minimum size.</string>
     <string name="target_size_example_3_heading">Good example 3: A 48dp by 48dp icon button using minWidth and minHeight</string>
-    <string name="target_size_example_3_content_description">Show more details.</string>
-    <string name="target_size_example_3_message">Tapped the 48dp by 48dp icon button using minWidth and minHeight.</string>
+    <string name="target_size_example_3_content_description">Show more details about a 48dp by 48dp icon button using minWidth and minHeight</string>
+    <string name="target_size_example_3_message">Tapped the 48dp by 48dp icon button using minWidth and minHeight. This button has Material Design\'s minimum size.</string>
     <string name="target_size_example_4_heading">Good example 4: A 48dp by 48dp icon button using layout padding</string>
-    <string name="target_size_example_4_content_description">Show more details.</string>
-    <string name="target_size_example_4_message">Tapped the 48dp by 48dp icon button using layout padding.</string>
+    <string name="target_size_example_4_content_description">Show more details about a 48dp by 48dp icon button using layout padding</string>
+    <string name="target_size_example_4_message">Tapped the 48dp by 48dp icon button using layout padding. This button has Material Design\'s minimum size.</string>
 
     <!-- Accessibility action labels -->
     <string name="menu_accessibility_action_labels">Accessibility action labels</string>
@@ -453,9 +453,9 @@
     <string name="custom_accessibility_actions_see_details">See details</string>
     <string name="custom_accessibility_actions_card_without_custom_actions_heading">Bad example 1: Card without custom accessibility actions</string>
     <string name="custom_accessibility_actions_card_without_custom_actions_description">Note how each button must be read as a separate item in TalkBack before the next card is read. TalkBack does not read \"Actions available…\" on this card.</string>
-    <string name="custom_accessibility_actions_card_1_like_description">Like post: Card #1 (\"Card without custom accessibility actions\")</string>
-    <string name="custom_accessibility_actions_card_1_share_description">Share post: Card #1 (\"Card without custom accessibility actions\")</string>
-    <string name="custom_accessibility_actions_card_1_report_description">Report as inappropriate: Card #1 (\"Card without custom accessibility actions\")</string>
+    <string name="custom_accessibility_actions_card_1_like_description">Like post: \"Card without custom accessibility actions\"</string>
+    <string name="custom_accessibility_actions_card_1_share_description">Share post: \"Card without custom accessibility actions\"</string>
+    <string name="custom_accessibility_actions_card_1_report_description">Report as inappropriate: \"Card without custom accessibility actions\"</string>
     <string name="custom_accessibility_actions_card_with_custom_actions_1_heading">Good example 2: Card with custom accessibility actions</string>
     <string name="custom_accessibility_actions_card_with_custom_actions_1_description">Note how the card is read as a single item. Buttons have become custom accessibility actions; TalkBack reads \"Actions available…\" and one swipe takes you to the next card instead of to a button within the card.</string>
     <string name="custom_accessibility_actions_card_with_custom_actions_2_heading">Good example 3: Another card with custom accessibility actions</string>
@@ -625,6 +625,15 @@
     <string name="inline_links_example_2">Good example 2: Using URLSpan</string>
     <string name="inline_links_example_2_content_description">Correct inline link example 2: Using URLSpan</string>
     <string name="inline_links_example_2_text">This paragraph contains links created using URLSpan, including a Google Support article.</string>
+
+    <!-- RatingBar controls -->
+    <string name="menu_ratingbar_controls">RatingBar controls</string>
+    <string name="ratingbar_controls_heading">RatingBar controls are accessible by default</string>
+    <string name="ratingbar_controls_description">Use the stock RatingBar (or AppCompatRatingBar) for accessible interactive rating controls. Custom controls may be less accessible.</string>
+    <string name="ratingbar_controls_description_2">Turn on TalkBack or Switch Access and rating control on this page for a demonstration.</string>
+    <string name="ratingbar_controls_example_1_heading">Good example 1: Accessible RatingBar</string>
+    <string name="ratingbar_controls_rating_label">Rating</string>
+    <string name="ratingbar_controls_rating_text">Rating is %1$.2f out of %2$d stars</string>
 
     <!-- Text language identification -->
     <string name="menu_language_identification">Text language identification</string>

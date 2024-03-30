@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -1677,6 +1677,55 @@
 
                     <ImageView
                         android:id="@+id/image_forward_inline_links"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:src="@drawable/ic_angle_right_outline"
+                        android:importantForAccessibility="no"
+                        app:tint="?colorOnBackground"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_rating_bar_controls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:importantForAccessibility="yes"
+                android:focusable="true"
+                app:strokeColor="@color/focus_indicator_color_state_list"
+                app:strokeWidth="2dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_rating_bar_controls"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/menu_ratingbar_controls"
+                        android:layout_margin="8dp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/image_forward_rating_bar_controls"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        />
+
+                    <ImageView
+                        android:id="@+id/image_forward_rating_bar_controls"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"

@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -101,6 +101,7 @@ class HomeFragment : Fragment() {
         binding.cardAutofill.applyNavigation(R.id.action_homeFragment_to_autofillFragment)
         binding.cardDropdown.applyNavigation(R.id.action_homeFragment_to_dropdownFragment)
         binding.cardInlineLinks.applyNavigation(R.id.action_homeFragment_to_inlineLinksFragment)
+        binding.cardRatingBarControls.applyNavigation(R.id.action_homeFragment_to_ratingBarControlsFragment)
         binding.cardLanguageIdentification.applyNavigation(R.id.action_homeFragment_to_languageIdentificationFragment)
 
         return binding.root

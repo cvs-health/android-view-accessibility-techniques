@@ -40,6 +40,7 @@ Since some of the code demonstrates the effect of inaccessible coding practices,
   - [x] [Autofill input fields](doc/componenttypes/AutofillInputFields.md)
   - [x] [Dropdown selection menus](doc/componenttypes/DropdownSelectionMenus.md)
   - [x] [Links inline with text](doc/componenttypes/LinksInlineWithText.md)
+  - [x] [RatingBar controls](doc/componenttypes/RatingBarControls.md)
   - [x] [Text language identification](doc/componenttypes/TextLanguageIdentification.md)
 - Other
   - [x] [Espresso Accessibility Checks automated testing](doc/EspressoAutomatedAccessibilityTesting.md)
@@ -57,7 +58,7 @@ Since some of the code demonstrates the effect of inaccessible coding practices,
 ## License
 android-view-accessibility-techniques is licensed under under the Apache License, Version 2.0.  See LICENSE file for more information. 
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
