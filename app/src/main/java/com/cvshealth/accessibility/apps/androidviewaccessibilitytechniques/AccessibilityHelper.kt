@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import android.provider.Settings
 import android.view.View
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.LinearLayout
+import android.widget.RadioButton
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
@@ -28,8 +29,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 /**
  * Make View a heading for accessibility. This method is required to designate accessibility
  * headings before pre-API 28 (when android:accessibilityHeading became available).
-  */
-
+ */
 fun View.setAsAccessibilityHeading() {
     ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
         override fun onInitializeAccessibilityNodeInfo(
@@ -45,6 +45,8 @@ fun View.setAsAccessibilityHeading() {
 /**
  * Add accessibility collection semantics to a LinearLayout. Used for manually marking visual lists
  * with list semantics.
+ *
+ * @param size the size of the list
  */
 fun LinearLayout.addListSemantics(size: Int) {
     accessibilityDelegate = object : View.AccessibilityDelegate() {
@@ -67,7 +69,7 @@ fun LinearLayout.addListSemantics(size: Int) {
  * Multiple associated views can share the same index and will be treated semantically as the same
  * list item.
  *
- * Note: index is zero-based.
+ * @param index zero-based index of this item in the list
  */
 fun View.addListItemSemantics(index: Int) {
     accessibilityDelegate = object : View.AccessibilityDelegate() {
@@ -119,3 +121,23 @@ fun Context.isWindowAnimationEnabled(): Boolean =
  */
 fun Context.isAnimationDisabled(): Boolean =
     !isAnimatorAnimationEnabled() || !isTransitionAnimationEnabled() || !isWindowAnimationEnabled()
+
+/**
+ * Add a RadioGroup label to a RadioButton for accessibility.
+ *
+ * @param radioGroupLabelView the [View] which labels the [RadioGroup] as a whole
+ */
+fun RadioButton.setRadioGroupHeading(radioGroupLabelView: View) {
+    ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
+        override fun onInitializeAccessibilityNodeInfo(
+            host: View,
+            info: AccessibilityNodeInfoCompat
+        ) {
+            super.onInitializeAccessibilityNodeInfo(host, info)
+
+            // Key technique: Use setLabeledBy() to associate a group label View with a RadioButton.
+            // This is done in addition to setting the RadioButton's field label with android:text.
+            info.setLabeledBy(radioGroupLabelView)
+        }
+    })
+}

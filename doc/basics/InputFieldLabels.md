@@ -72,6 +72,36 @@ Note that `RadioButton` controls must always be enclosed in a `RadioGroup` contr
     android:text="Submit" />
 ```
 
+## Labeling RadioButtons with group labels
+
+In addition to applying a field label to each `RadioButton` using `android:text`, it is important to associate the radio button group label to each individual `RadioButton` in order to supply its selection context.
+
+This is done by manipulating each `RadioButton`'s `AccessibilityNodeInfo` object with the `setLabeledBy()` method. Doing that can be simplified with the following extension method:
+
+```kotlin
+fun RadioButton.setRadioGroupHeading(radioGroupLabelView: View) {
+    ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
+        override fun onInitializeAccessibilityNodeInfo(
+            host: View,
+            info: AccessibilityNodeInfoCompat
+        ) {
+            super.onInitializeAccessibilityNodeInfo(host, info)
+            
+            // Technique: Use setLabeledBy() to associate a group label View with a RadioButton.
+            // This is done in addition to setting the RadioButton's field label with android:text.
+            info.setLabeledBy(radioGroupLabelView)
+        }
+    })
+}
+```
+
+This extension function associates a group label's `View` with `RadioButton`s as follows:
+
+```kotlin
+binding.radiobutton1.setRadioGroupHeading(binding.radioGroupLabel)
+binding.radiobutton2.setRadioGroupHeading(binding.radioGroupLabel)
+```
+
 ## Labeling `Slider` and `RangeSlider` controls
 
 Labeling `Slider` and `RangeSlider` controls is more complex and has known issues. What _must_ be done to label a `Slider` for accessibility is to provide a `contentDescription` for the control; otherwise, a `Slider` will not be properly focused or announced by the TalkBack screen reader. 

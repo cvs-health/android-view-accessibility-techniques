@@ -78,10 +78,12 @@
     <string name="input_field_labels_unassociated_switch_label">Field label not associated with Switch</string>
     <string name="input_field_labels_example_7">Good example 7: Switch with associated field label (text)</string>
     <string name="input_field_labels_associated_switch_label">Field label associated with Switch</string>
-    <string name="input_field_labels_example_8">Bad example 8: RadioButtons without associated field labels</string>
+    <string name="input_field_labels_example_8">Bad example 8: RadioButtons without associated group and field labels</string>
+    <string name="input_field_labels_unassociated_radio_group_label">Radio group label not associated with RadioButtons</string>
     <string name="input_field_labels_unassociated_radio_button_label_1">Field label not associated with RadioButton</string>
     <string name="input_field_labels_unassociated_radio_button_label_2">Second field label not associated with RadioButton</string>
-    <string name="input_field_labels_example_9">Good example 9: RadioButtons with associated field labels (text)</string>
+    <string name="input_field_labels_example_9">Good example 9: RadioButtons with associated group (setLabeledBy) and field labels (text)</string>
+    <string name="input_field_labels_associated_radio_group_label">Radio group label</string>
     <string name="input_field_labels_associated_radio_button_label_1">Field label associated with RadioButton</string>
     <string name="input_field_labels_associated_radio_button_label_2">Second field label associated with RadioButton</string>
     <string name="input_field_labels_example_10">Good example 10: Button with associated text label (text)</string>
@@ -630,7 +632,7 @@
     <string name="menu_ratingbar_controls">RatingBar controls</string>
     <string name="ratingbar_controls_heading">RatingBar controls are accessible by default</string>
     <string name="ratingbar_controls_description">Use the stock RatingBar (or AppCompatRatingBar) for accessible interactive rating controls. Custom controls may be less accessible.</string>
-    <string name="ratingbar_controls_description_2">Turn on TalkBack or Switch Access and rating control on this page for a demonstration.</string>
+    <string name="ratingbar_controls_description_2">Turn on TalkBack or Switch Access and use the rating control on this page for a demonstration.</string>
     <string name="ratingbar_controls_example_1_heading">Good example 1: Accessible RatingBar</string>
     <string name="ratingbar_controls_rating_label">Rating</string>
     <string name="ratingbar_controls_rating_text">Rating is %1$.2f out of %2$d stars</string>

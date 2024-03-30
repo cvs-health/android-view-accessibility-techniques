@@ -22,7 +22,6 @@ import android.view.ViewGroup
 import android.widget.RatingBar
 import androidx.fragment.app.Fragment
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.R
-import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.databinding.FragmentContentGroupReplacementBinding
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.databinding.FragmentRatingBarControlsBinding
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAsAccessibilityHeading
 
