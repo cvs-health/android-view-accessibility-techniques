@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment with good examples of creating dropdown list controls that announce their name, role,
- * and value in accordance with the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#name-role-value">Success Criterion 4.1.2 Name, Role, Value</a>
+ * and value in accordance with the WCAG <a href="https://www.w3.org/TR/WCAG22/#name-role-value">Success Criterion 4.1.2 Name, Role, Value</a>
  * by using the Android standard control Spinner and the Material Design Exposed Dropdown Menu
  * pattern implemented with the controls TextInputLayout and AutocompleteTextView.
  *

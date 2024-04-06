@@ -1,7 +1,7 @@
 # Minimum Touch Target Size
 Touch targets should be at least 48dp by 48dp and _must_ be at least 24dp by 24dp.
 
-These minimum sizes are required to support the existing WCAG 2 [Success Criterion 2.5.5 Target Size](https://www.w3.org/TR/WCAG21/#target-size) (Level AAA), the WCAG 2.2 [Success Criterion 2.5.8 Target Size (Minimum)](https://www.w3.org/TR/WCAG22/#target-size-minimum) (Level AA), and Material Design Guidelines [Touch targets](https://m2.material.io/design/usability/accessibility.html#layout-and-typography).
+These minimum sizes are required to support WCAG [Success Criterion 2.5.5 Target Size](https://www.w3.org/TR/WCAG22/#target-size) (Level AAA) and [Success Criterion 2.5.8 Target Size (Minimum)](https://www.w3.org/TR/WCAG22/#target-size-minimum) (Level AA), and the Material Design Guidelines [Touch targets](https://m2.material.io/design/usability/accessibility.html#layout-and-typography).
 
 There are several techniques for achieving appropriate touch target size on an `ImageButton`; however, all but the last are fragile to changes in the underlying drawable.
 
@@ -64,12 +64,13 @@ Touch target size can also be increased by appropriately grouping elements; see 
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

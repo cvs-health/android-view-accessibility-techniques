@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAs
 
 /**
  * Fragment with bad and good examples of setting the soft keyboard type of input controls in
- * support of the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#identify-purpose">Success Criterion 1.3.5 Identify Input Purpose</a>.
+ * support of the WCAG <a href="https://www.w3.org/TR/WCAG22/#identify-purpose">Success Criterion 1.3.5 Identify Input Purpose</a>.
  *
  * See the associated XML layout file, fragment_keyboard_type.xml, for the key technique of
  * applying android:inputType to input fields.

@@ -5,7 +5,7 @@ TextView controls in Android should obey the following rules:
 2. Use `layout_height="wrap_content"` (or `layout_height="0dp"` in a `ConstraintLayout`).
 3. Do not set `android:maxLines` (or any other `max...` property) -- unless some mechanism exists to make the full text available.
 
-These steps are required to support the WCAG 2 [Success Criterion 1.4.4 Resize Text](https://www.w3.org/TR/WCAG21/#resize-text) and [Success Criterion 1.4.10 Reflow](https://www.w3.org/TR/WCAG21/#reflow).
+These steps are required to support WCAG [Success Criterion 1.4.4 Resize Text](https://www.w3.org/TR/WCAG22/#resize-text) and [Success Criterion 1.4.10 Reflow](https://www.w3.org/TR/WCAG22/#reflow).
 
 The first rule insures that text will scale when the system text size is adjusted in the Android Settings app "Accessibility > Text and display > Font size" screen (Google devices) or "Accessibility > Visibility enhancements > Font size and style" screen (Samsung devices).
 
@@ -28,12 +28,13 @@ The third rule insures that the entire text can display by reflowing vertically 
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

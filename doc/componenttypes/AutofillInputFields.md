@@ -1,5 +1,5 @@
 # Autofill Input Fields
-Whenever possible, supply known data values to input fields to reduce redundant data entry. This is done in support of the WCAG 2 [Success Criterion 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG21/#identify-input-purpose) and the WCAG 2.2 [Success Criterion 3.3.7 Redundant Entry](https://www.w3.org/TR/WCAG22/#redundant-entry).
+Whenever possible, supply known data values to input fields to reduce redundant data entry. This is done in support of WCAG [Success Criterion 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG22/#identify-input-purpose) and [Success Criterion 3.3.7 Redundant Entry](https://www.w3.org/TR/WCAG22/#redundant-entry).
 
 Two approaches to auto-filling input field values are to provide hints to an Autofill Service and to supply known application data.
 
@@ -7,7 +7,7 @@ Two approaches to auto-filling input field values are to provide hints to an Aut
 
 Text input fields can be autofilled by supplying the android:autofillHints property, so that any installed Autofill Service can provide suggested data values. See [Optimize your app for autofill](https://developer.android.com/guide/topics/text/autofill-optimize) for details.
 
-* This approach, and supplying `android:inputType`, are necessary to fulfill [Success Criterion 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG21/#identify-input-purpose) on Android.
+* This approach, and supplying `android:inputType`, are necessary to fulfill WCAG [Success Criterion 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG22/#identify-input-purpose) on Android.
 
 ```
 <com.google.android.material.textfield.TextInputLayout
@@ -30,12 +30,13 @@ Input fields can also be auto-populated by supplying default data values from kn
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

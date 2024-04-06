@@ -1,5 +1,5 @@
 # Input Field Labels
-All input fields must have associated text labels, as required by WCAG 2 [Success Criterion 1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships). Android uses several techniques to associate fields and labels, depending on the control type.
+All input fields must have associated text labels, as required by WCAG [Success Criterion 1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships). Android uses several techniques to associate fields and labels, depending on the control type.
 
 ## Use the `android:labelFor` property to associate `TextView` labels with controls
 
@@ -106,7 +106,7 @@ binding.radiobutton2.setRadioGroupHeading(binding.radioGroupLabel)
 
 Labeling `Slider` and `RangeSlider` controls is more complex and has known issues. What _must_ be done to label a `Slider` for accessibility is to provide a `contentDescription` for the control; otherwise, a `Slider` will not be properly focused or announced by the TalkBack screen reader. 
 
-However, providing a `contentDescription` does _not_ provide a descriptive visual label for the `Slider`, which is required in addition to the programmatically-associated label text by WCAG 2 [Success Criterion 2.4.6 Headings and Labels](https://www.w3.org/TR/WCAG21/#headings-and-labels). Such a visual label can be created using a separate `TextView`, and should probably be associated with the `Slider` using the `android:labelFor` property. 
+However, providing a `contentDescription` does _not_ provide a descriptive visual label for the `Slider`, which is required in addition to the programmatically-associated label text by WCAG [Success Criterion 2.4.6 Headings and Labels](https://www.w3.org/TR/WCAG22/#headings-and-labels). Such a visual label can be created using a separate `TextView`, and should probably be associated with the `Slider` using the `android:labelFor` property. 
 
 (That said, since the `contentDescription` is required and may duplicate the visual label text, using `labelFor` can produce a problematic user experience. Be sure to test your resulting user interface using a screen reader. See [[Slider\] ContentDescription causes the talkback to not read correctly #2348](https://github.com/material-components/material-components-android/issues/2348) and [[Slider\] LabelFor does not work #2347](https://github.com/material-components/material-components-android/issues/2347) for more details about the known issues with `Slider` control labeling.)
 
@@ -153,12 +153,13 @@ Note when testing that Slider controls have two parts: the outer slider itself a
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

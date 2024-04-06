@@ -1,7 +1,7 @@
 # Keyboard and Accessibility Focus Order
-Sequence all focusable active control elements appropriately so they are activated by the keyboard or assistive technologies (e.g., TalkBack, Switch Access) in an order that preserves the meaning of their visual layout. Incorrect control focus sequences are hard to operate or understand and violate the WCAG 2 [Success Criterion 2.4.3 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order).
+Sequence all focusable active control elements appropriately so they are activated by the keyboard or assistive technologies (e.g., TalkBack, Switch Access) in an order that preserves the meaning of their visual layout. Incorrect control focus sequences are hard to operate or understand and violate the WCAG [Success Criterion 2.4.3 Focus Order](https://www.w3.org/TR/WCAG22/#focus-order).
 
-Also, avoid creating focus traps, in accordance with WCAG 2 [Success Criterion 2.1.2 No Keyboard Trap](https://www.w3.org/TR/WCAG21/#no-keyboard-trap).
+Also, avoid creating focus traps, in accordance with the WCAG [Success Criterion 2.1.2 No Keyboard Trap](https://www.w3.org/TR/WCAG22/#no-keyboard-trap).
 
 There are three techniques for influencing keyboard and accessibility focus order: correct layout grouping and sequencing, `nextFocusForward`, and `accessibilityTraversalBefore` / `accessibilityTraversalAfter`.
 
@@ -84,12 +84,13 @@ These properties do not work on all Android platforms. They create maintenance i
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

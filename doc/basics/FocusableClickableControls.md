@@ -1,5 +1,5 @@
 # Focusable, Clickable Controls
-If an active Android control is touchable, it must set `android:focusable="true"` and apply an `onClickListener`, not just an `onTouchListener`. These two steps are required to support the WCAG 2 requirements [Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard) and [Success Criterion 2.5.2 Pointer Cancellation](https://www.w3.org/TR/WCAG21/#pointer-cancellation).
+If an active Android control is touchable, it must set `android:focusable="true"` and apply an `onClickListener`, not just an `onTouchListener`. These two steps are required to support the WCAG requirements [Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG22/#keyboard) and [Success Criterion 2.5.2 Pointer Cancellation](https://www.w3.org/TR/WCAG22/#pointer-cancellation).
 
 Some controls, such as `Button` and `ImageButton` are focusable by default, so do not require adding `android:focusable="true"`; however, any typically non-focusable element, such as `ImageView` needs to be made focusable or a keyboard and Switch Access may be unable to focus on it.
 
@@ -22,12 +22,13 @@ binding.showHelloWorld.setOnClickListener {
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

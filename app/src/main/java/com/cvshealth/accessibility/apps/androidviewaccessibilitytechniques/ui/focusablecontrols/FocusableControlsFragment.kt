@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -29,8 +29,8 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment with examples of bad and good practices of creating keyboard-focusable controls. These
- * techniques support one aspect of the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#keyboard">Success Criterion 2.1.1 Keyboard</a>,
- * as well as <a href="https://www.w3.org/TR/WCAG21/#pointer-cancellation">Success Criterion 2.5.2 Pointer Cancellation</a>.
+ * techniques support one aspect of the WCAG <a href="https://www.w3.org/TR/WCAG22/#keyboard">Success Criterion 2.1.1 Keyboard</a>,
+ * as well as <a href="https://www.w3.org/TR/WCAG22/#pointer-cancellation">Success Criterion 2.5.2 Pointer Cancellation</a>.
  *
  * One key technique involved is using onClickListener() instead of onTouchListener(), because
  * onClickListener() is keyboard-enabled and supports pointer cancellation, unlike onTouchListener().

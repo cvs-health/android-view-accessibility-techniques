@@ -28,7 +28,7 @@ const val UNGROUPED_RADIOBUTTON_SELECTED = "ungrouped_radiobutton_selected"
 
 /**
  * Fragment with examples of bad and good practices of programmatically associating labels with
- * input fields. These techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">Success Criterion 1.3.1 Info and Relationships</a>.
+ * input fields. These techniques support the WCAG <a href="https://www.w3.org/TR/WCAG22/#info-and-relationships">Success Criterion 1.3.1 Info and Relationships</a>.
  *
  * All of the key techniques are demonstrated in the associated layout file
  * fragment_input_field_labels.xml.

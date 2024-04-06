@@ -1,5 +1,5 @@
 # Links Inline with Text
-Always create links which are inline with text that announce their name, role, and value in accordance with the WCAG 2 [Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value). The goal is to make TalkBack announce a `TextView` with the "Links available..." action message and display the TalkBack menu's Links menu.
+Always create links which are inline with text that announce their name, role, and value in accordance with the WCAG [Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG22/#name-role-value). The goal is to make TalkBack announce a `TextView` with the "Links available..." action message and display the TalkBack menu's Links menu.
 
 Two approaches to creating links inline with text are adding HTML anchor tags in string resources and URLSpans.
 
@@ -44,12 +44,13 @@ binding.urlSpanTextView.movementMethod = LinkMovementMethod.getInstance()
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

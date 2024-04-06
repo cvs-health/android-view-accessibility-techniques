@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -28,8 +28,8 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment with problematic and good examples of keyboard focus indicator practices. These
- * techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#focus-visible">Success Criterion 2.4.7 Focus Visible</a>
- * and the WCAG 2.2 <a href="https://www.w3.org/TR/WCAG22/#focus-appearance">Success Criterion 2.4.13 Focus Appearance</a> (Level AAA).
+ * techniques support WCAG <a href="https://www.w3.org/TR/WCAG22/#focus-visible">Success Criterion 2.4.7 Focus Visible</a>
+ * and <a href="https://www.w3.org/TR/WCAG22/#focus-appearance">Success Criterion 2.4.13 Focus Appearance</a> (Level AAA).
  *
  * See the associated XML layout file, fragment_focus_visibility.xml, for all important techniques.
  */

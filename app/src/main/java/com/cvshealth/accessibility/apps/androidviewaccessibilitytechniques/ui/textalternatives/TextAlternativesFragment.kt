@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment with examples of bad and good practices of providing text alternatives for non-text
- * content. These techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#non-text-content">Success Criterion 1.1.1 Non-Text Content</a>.
+ * content. These techniques support the WCAG <a href="https://www.w3.org/TR/WCAG22/#non-text-content">Success Criterion 1.1.1 Non-Text Content</a>.
  *
  * All of the key techniques are demonstrated in the associated layout file:
  * fragment_text_alternatives.xml.

@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ import java.util.Locale
  * Fragment with examples of bad and good practices in identifying texts that differ from the
  * system-configured language. Without appropriate handling, texts in different languages will be
  * mispronounced by the text-to-speech engine within the TalkBack screen reader, reducing
- * accessibility. These techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#language-of-parts">Success Criterion 3.1.2 Language of Parts</a>.
+ * accessibility. These techniques support the WCAG <a href="https://www.w3.org/TR/WCAG22/#language-of-parts">Success Criterion 3.1.2 Language of Parts</a>.
  *
  * Also incorporate Google's guidance about <a href="https://developer.android.com/guide/topics/resources/app-languages">per-app language preferences</a>
  * that is available for Android 13+ or with Appcompat 1.6+, which is yet to be done in this sample

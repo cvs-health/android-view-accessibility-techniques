@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -32,10 +32,10 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment with good examples of visibly displaying and announcing errors to Accessibility Services
- * like the TalkBack screen reader. These techniques support the WCAG 2.x
- * <a href="https://www.w3.org/TR/WCAG21/#error-identification">Success Criterion 3.3.1 Error Identification</a>,
- * <a href="https://www.w3.org/TR/WCAG21/#error-suggestion">Success Criterion 3.3.3 Error Suggestion</a>,
- * and <a href="https://www.w3.org/TR/WCAG21/#status-messages">Success Criterion 4.1.3 Status Messages</a>.
+ * like the TalkBack screen reader. These techniques support WCAG
+ * <a href="https://www.w3.org/TR/WCAG22/#error-identification">Success Criterion 3.3.1 Error Identification</a>,
+ * <a href="https://www.w3.org/TR/WCAG22/#error-suggestion">Success Criterion 3.3.3 Error Suggestion</a>,
+ * and <a href="https://www.w3.org/TR/WCAG22/#status-messages">Success Criterion 4.1.3 Status Messages</a>.
  *
  * Two key techniques are using app:errorEnabled="true" on TextInputLayout elements to enable error
  * message display and setting the TextInputLayout error property to any applicable error message.

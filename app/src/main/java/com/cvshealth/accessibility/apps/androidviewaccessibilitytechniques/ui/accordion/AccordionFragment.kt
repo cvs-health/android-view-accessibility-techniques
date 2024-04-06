@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -31,14 +31,14 @@ import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAs
 
 /**
  * Fragment with good and bad examples of creating Accordion control sections that announce their
- * name, role, and value in accordance with the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#name-role-value">Success Criterion 4.1.2 Name, Role, Value</a>
+ * name, role, and value in accordance with the WCAG <a href="https://www.w3.org/TR/WCAG22/#name-role-value">Success Criterion 4.1.2 Name, Role, Value</a>
  * by using (or not) the Android standard accessibility actions ACTION_EXPAND (if collapsed) and
  * ACTION_COLLAPSE (if expanded). Only by declaring those accessibility actions is the expanded or
  * collapsed state of an accordion control surfaced to the Android Accessibility API. See
  * addAccessibilityActions() below for implementation details.
  *
  * In both examples, the headings and expanded visual lists incorporate proper heading and list
- * semantics in accordance with the WCAG 2.x success <a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 Info and Relationships</a>
+ * semantics in accordance with the WCAG success <a href="https://www.w3.org/TR/WCAG22/#info-and-relationships">1.3.1 Info and Relationships</a>
  * by using the extension functions View.setAsAccessibilityHeading(),
  * LinearLayout.addListSemantics(), and View.addListItemSemantics() from AccessibilityHelper.kt.
  *

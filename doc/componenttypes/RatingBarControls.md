@@ -1,5 +1,5 @@
 # RatingBar Controls
-To create interactive rating bar controls, i.e. "star ratings," that announce their name, role, and value in accordance with the WCAG 2 [Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value) and work well with assistive technologies, use the standard Android `RatingBar` control. Custom approaches are likely to be less accessible.
+To create interactive rating bar controls, i.e. "star ratings," that announce their name, role, and value in accordance with the WCAG [Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG22/#name-role-value) and work well with assistive technologies, use the standard Android `RatingBar` control. Custom approaches are likely to be less accessible.
 
 In XML, declare the `RatingBar` (in this case, using `AppCompatRatingBar`) and set the following properties:
 
@@ -54,7 +54,8 @@ Copyright 2024 CVS Health and/or one of its affiliates
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

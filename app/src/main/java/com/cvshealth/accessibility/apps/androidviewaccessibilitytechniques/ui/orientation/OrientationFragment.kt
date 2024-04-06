@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAs
 
 /**
  * Fragment describing how this application support both portrait and landscape orientations
- * in accordance with the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#orientation">Success Criterion 1.3.4 Orientation</a>.
+ * in accordance with the WCAG <a href="https://www.w3.org/TR/WCAG22/#orientation">Success Criterion 1.3.4 Orientation</a>.
  *
  * No techniques for orientation support are demonstrated on this page or in its associated XML
  * layout file. See instead AndroidManifest.xml (for the lack of

@@ -1,5 +1,5 @@
 # Input Error Announcements
-All errors resulting from user interactions must display visible notifications with suggestions for correction and must be announced to accessibility services (such as TalkBack). These actions support WCAG 2 [Success Criterion 3.3.1 Error Identification](https://www.w3.org/TR/WCAG21/#error-identification), [Success Criterion 3.3.3 Error Suggestion](https://www.w3.org/TR/WCAG21/#error-suggestion), and [Success Criterion 4.1.3 Status Messages](https://www.w3.org/TR/WCAG21/#status-messages).
+All errors resulting from user interactions must display visible notifications with suggestions for correction and must be announced to accessibility services (such as TalkBack). These actions support WCAG [Success Criterion 3.3.1 Error Identification](https://www.w3.org/TR/WCAG22/#error-identification), [Success Criterion 3.3.3 Error Suggestion](https://www.w3.org/TR/WCAG22/#error-suggestion), and [Success Criterion 4.1.3 Status Messages](https://www.w3.org/TR/WCAG22/#status-messages).
 
 One set of techniques that can help provide input error announcements involves the `TextInputLayout`/`TextInputEditText` combined controls:
 
@@ -55,12 +55,13 @@ Many other approaches to input error messaging and announcement are possible.
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ const val IS_ANIMATION_PAUSED = "is_animation_paused"
 
 /**
  * Fragment with good examples of animation control practices. These
- * techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide">Success Criterion 2.2.2 Pause, Stop, Hide</a>
+ * techniques support the WCAG <a href="https://www.w3.org/TR/WCAG22/#pause-stop-hide">Success Criterion 2.2.2 Pause, Stop, Hide</a>
  * and the WAI Mobile Task Force guidance about
  * <a href="https://w3c.github.io/Mobile-A11y-TF-Note/#support-the-characteristic-properties-of-the-platform">supporting the characteristic properties of the platform</a>
  * (in this case, the "Remove animations" setting).

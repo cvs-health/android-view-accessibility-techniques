@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -28,9 +28,9 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment with problematic and good examples of keyboard focus indicator practices. These
- * techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#target-size">Success Criterion 2.5.5 Target Size</a> (Level AAA),
- * Material Design guidelines <a href="https://m2.material.io/design/usability/accessibility.html#layout-and-typography">Touch and pointer targets</a>,
- * and the WCAG 2.2 <a href="https://www.w3.org/TR/WCAG22/#target-size-minimum">Success Criterion 2.5.8 Target Size (Minimum)</a> (Level AA).
+ * techniques support WCAG <a href="https://www.w3.org/TR/WCAG22/#target-size">Success Criterion 2.5.5 Target Size</a> (Level AAA),
+ * and <a href="https://www.w3.org/TR/WCAG22/#target-size-minimum">Success Criterion 2.5.8 Target Size (Minimum)</a> (Level AA),
+ * and Material Design guidelines <a href="https://m2.material.io/design/usability/accessibility.html#layout-and-typography">Touch and pointer targets</a>.
  *
  * See the associated XML layout file, fragment_target_size.xml, for all important techniques.
  */

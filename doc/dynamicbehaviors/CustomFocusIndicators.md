@@ -1,7 +1,7 @@
 # Custom Focus Indicators
-By default, all standard Android control types have focus indicators which display when keyboard focus is on a control. However, the default focus indicators are generally low-contrast, which makes the focussed control very hard to identify for keyboard users with low vision. Applying custom focus indicators is one way to better support those users in accordance with the WCAG 2 [Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible) and the WCAG 2.2 [Success Criterion 2.4.13 Focus Appearance](https://www.w3.org/TR/WCAG22/#focus-appearance) (Level AAA).
+By default, all standard Android control types have focus indicators which display when keyboard focus is on a control. However, the default focus indicators are generally low-contrast, which makes the focussed control very hard to identify for keyboard users with low vision. Applying custom focus indicators is one way to better support those users in accordance with WCAG [Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG22/#focus-visible) and [Success Criterion 2.4.13 Focus Appearance](https://www.w3.org/TR/WCAG22/#focus-appearance) (Level AAA).
 
-(Note that using the default focus indicator is in technical conformance with WCAG 2.2 [Success Criterion 2.4.13 Focus Appearance](https://www.w3.org/TR/WCAG22/#focus-appearance) (Level AAA), but it provides a poor user experience for keyboard users.)
+(Note that using the default focus indicator is in technical conformance with the WCAG [Success Criterion 2.4.13 Focus Appearance](https://www.w3.org/TR/WCAG22/#focus-appearance) (Level AAA), but it provides a poor user experience for keyboard users.)
 
 There are several techniques available to customize the focus indicators for controls; although, some techniques work better for particular controls than others.
 
@@ -96,12 +96,13 @@ If API levels before 23 must be supported, then a similar effect may be achieved
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

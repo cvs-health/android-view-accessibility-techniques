@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -28,9 +28,9 @@ import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAs
 import com.google.android.material.tabs.TabLayout
 
 /**
- * Fragment with good examples of applying autofill to input controls in support of the WCAG 2.x
- * <a href="https://www.w3.org/TR/WCAG21/#identify-purpose">Success Criterion 1.3.5 Identify Input Purpose</a>
- * and the WCAG 2.2 <a href="https://www.w3.org/TR/WCAG22/#redundant-entry">Success Criterion 3.3.7 Redundant Entry</a>.
+ * Fragment with good examples of applying autofill to input controls in support of the WCAG
+ * <a href="https://www.w3.org/TR/WCAG22/#identify-purpose">Success Criterion 1.3.5 Identify Input Purpose</a>
+ * and <a href="https://www.w3.org/TR/WCAG22/#redundant-entry">Success Criterion 3.3.7 Redundant Entry</a>.
  *
  * See the associated XML layout file, fragment_autofill.xml, for the key techniques of
  * applying android:inputType and android:autofillHints to input fields. See defaultText() and

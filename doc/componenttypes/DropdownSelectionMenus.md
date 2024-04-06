@@ -1,5 +1,5 @@
 # Dropdown Selection Menus
-To create dropdown list controls that announce their name, role, and value in accordance with the WCAG 2 [Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value), use the standard Android control `Spinner` and the Material Design [Exposed Dropdown Menu pattern](https://m2.material.io/components/menus#exposed-dropdown-menu). Custom approaches are likely to be less accessible; make sure any dropdown selection menu announces the role "Drop down list".
+To create dropdown list controls that announce their name, role, and value in accordance with the WCAG [Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG22/#name-role-value), use the standard Android control `Spinner` and the Material Design [Exposed Dropdown Menu pattern](https://m2.material.io/components/menus#exposed-dropdown-menu). Custom approaches are likely to be less accessible; make sure any dropdown selection menu announces the role "Drop down list".
 
 ## The `Spinner` control
 
@@ -41,12 +41,13 @@ Use the [Exposed Dropdown Menu pattern](https://m2.material.io/components/menus#
 
 ----
 
-Copyright 2023 CVS Health and/or one of its affiliates
+Copyright 2023-2024 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-[http://www.apache.org/licenses/LICENSE-2.0]()
+
+http://www.apache.org/licenses/LICENSE-2.0
        
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

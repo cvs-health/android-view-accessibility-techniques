@@ -28,7 +28,7 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment with bad and good examples of keyboard (and accessibility) focus order practices.
- * These techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#focus-order">Success Criterion 2.4.3 Focus Order</a>.
+ * These techniques support WCAG <a href="https://www.w3.org/TR/WCAG22/#focus-order">Success Criterion 2.4.3 Focus Order</a>.
  *
  * See the associated XML layout file, fragment_keyboard_focus_order.xml, for all important
  * techniques.

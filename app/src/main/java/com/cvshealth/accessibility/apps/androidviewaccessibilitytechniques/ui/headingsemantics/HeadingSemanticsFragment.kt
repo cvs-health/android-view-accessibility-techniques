@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAs
 
 /**
  * Fragment with examples of bad and good practices regarding heading semantics. These techniques
- * support one aspect of the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">Success Criterion 1.3.1 Info and Relationships</a>.
+ * support one aspect of the WCAG <a href="https://www.w3.org/TR/WCAG22/#info-and-relationships">Success Criterion 1.3.1 Info and Relationships</a>.
  *
  * One of the key techniques is demonstrated below: setting the accessibility heading flag in code
  * via the extension function setAsAccessibilityHeading() from AccessibilityHelper.kt.

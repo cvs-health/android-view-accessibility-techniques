@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAs
 
 /**
  * Fragment with good examples of creating in-line links that announce their name, role, and value
- * in accordance with the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#name-role-value">Success Criterion 4.1.2 Name, Role, Value</a>.
+ * in accordance with the WCAG <a href="https://www.w3.org/TR/WCAG22/#name-role-value">Success Criterion 4.1.2 Name, Role, Value</a>.
  * The primary goal is for TalkBack to make a Links menu available when the associated text block is
  * announced.
  *

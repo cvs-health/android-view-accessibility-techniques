@@ -1,5 +1,5 @@
 /*
-   Copyright 2023 CVS Health and/or one of its affiliates
+   Copyright 2023-2024 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment with adequate and good examples of keyboard arrow key / direction pad focus order
- * practices. These techniques support the WCAG 2.x <a href="https://www.w3.org/TR/WCAG21/#focus-order">Success Criterion 2.4.3 Focus Order</a>.
+ * practices. These techniques support the WCAG <a href="https://www.w3.org/TR/WCAG22/#focus-order">Success Criterion 2.4.3 Focus Order</a>.
  *
  * See the associated XML layout file, fragment_arrow_key_focus_order.xml, for all important
  * techniques.
