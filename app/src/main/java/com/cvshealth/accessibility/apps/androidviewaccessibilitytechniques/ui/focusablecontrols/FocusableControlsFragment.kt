@@ -85,7 +85,7 @@ class FocusableControlsFragment : Fragment()  {
      */
     private fun View.onTouchShowSnackbar(@StringRes msgId: Int) {
         // Avoid using this method if possible. See KDocs for details.
-        setOnTouchListener { v: View, motionEvent: MotionEvent ->
+        setOnTouchListener { _: View, _: MotionEvent ->
             val message = getString(msgId)
             Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
             return@setOnTouchListener true
