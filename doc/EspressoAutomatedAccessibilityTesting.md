@@ -8,8 +8,8 @@ The following steps will add this functionality to all UI tests:
 ```
 dependencies {
     ...
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.4.0'
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation("androidx.test.espresso:espresso-accessibility:3.6.1")
 }
 ```
 
@@ -39,7 +39,7 @@ android {
     ...
     defaultConfig {
         ...
-        testInstrumentationRunner 'com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.AccessibilityChecksTestRunner'
+        testInstrumentationRunner = "com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.AccessibilityChecksTestRunner"
     }
     ...
 }
