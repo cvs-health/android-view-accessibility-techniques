@@ -8,7 +8,7 @@ Override `fun onInitializeAccessibilityNodeInfo()` so that, if the accordion is 
 Also, an override of `fun performAccessibilityAction()` must be present in the `AccessibilityDelegate` in order to handle the expand and collapse actions.
 
 
-```
+```kotlin
 sectionHeader.accessibilityDelegate = object : View.AccessibilityDelegate() {
     override fun onInitializeAccessibilityNodeInfo(
         host: View,
@@ -61,7 +61,7 @@ sectionHeader.accessibilityDelegate = object : View.AccessibilityDelegate() {
 
 The accordion control must also be a focusable, clickable control in order to support keyboard operation. See [Focusable, Clickable Controls](../basics/FocusableClickableControls.md) for details.
 
-```
+```kotlin
 binding.accordion.setOnClickListener { 
     viewModel.toggleAccordion(sectionId) 
 }
@@ -69,7 +69,7 @@ binding.accordion.setOnClickListener {
 
 Accordion controls must actually show or hide their content, as well as visually indicate their expanded or collapsed state. Expanded or collapsed state is often indicated with icons. For example:
 
-```
+```kotlin
 if (pageModel.accordionExpanded) {
     binding.accordionContent.visibility = View.VISIBLE
     binding.accordion.setImageResource(R.drawable.ic_up_caret)

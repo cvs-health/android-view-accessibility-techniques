@@ -5,7 +5,7 @@ All input fields must have associated text labels, as required by WCAG [Success 
 
 The most common and generic technique for associating labels with input field controls is to add the `android:labelFor` property to a TextView, indicating what control field is being labeled by that text.
 
-```
+```xml
 <TextView
     ...
     android:labelFor="@+id/name"
@@ -19,7 +19,7 @@ The most common and generic technique for associating labels with input field co
 
 The `TextInputLayout`/`TextInputEditText` combined input field control associates the label with the text input field using the `android:hint` property.
 
-```
+```xml
 <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/name_layout"
     ...
@@ -35,21 +35,21 @@ The `CheckBox`, `SwitchCompat`/`SwitchMaterial`, `RadioButton`, and `Button` con
 
 Note that `RadioButton` controls must always be enclosed in a `RadioGroup` control for proper operation and accessibility.
 
-```
+```xml
 <CheckBox
     android:id="@+id/labels_checkbox"
     ...
     android:text="Show labels" />
 ```
 
-```
+```xml
 <androidx.appcompat.widget.SwitchCompat
     android:id="@+id/labels_switch"
     ...
     android:text="Show labels" />
 ```
 
-```
+```xml
 <RadioGroup
     ...>
     
@@ -65,7 +65,7 @@ Note that `RadioButton` controls must always be enclosed in a `RadioGroup` contr
         
 ```
 
-```
+```xml
 <Button
     android:id="@+id/button_associated"
     ...
@@ -112,7 +112,7 @@ However, providing a `contentDescription` does _not_ provide a descriptive visua
 
 Note when testing that Slider controls have two parts: the outer slider itself and one or two "thumb" controls. The outer slider will announce itself in TalkBack with something like "Quality rating, Slider. Double-tap to activate." Ignore the "Double-tap to activate" action on the outer slider control -- it doesn't do anything -- instead swipe right (Next) in TalkBack to get to the thumb control, which has the slider's value and adjustment actions, such as '"Swipe up" or "Swipe down" to adjust.'
 
-```
+```xml
 <!-- One technique is associating the visual label TextView with the
      Slider control using android:labelFor. -->
 <TextView
@@ -132,7 +132,7 @@ Note when testing that Slider controls have two parts: the outer slider itself a
     android:contentDescription="Rating" />
 ```
 
-```
+```xml
 <!-- One technique is associating the visual label TextView with
     the RangeSlider control using android:labelFor. -->
 <TextView

@@ -13,7 +13,7 @@ Setting `android:colorControlHighlight` in the default theme to a high-contrast 
 
 For some controls, setting `app:strokeWidth` greater to `2dp` (or more), and setting `app:strokeColor` to a color state list can produce a more visible focus indicator. This approach does not work well for all controls, but is effective with Material Design buttons.
 
-```
+```xml
 <Button
     android:id="@+id/button_example"
     ...
@@ -24,7 +24,7 @@ For some controls, setting `app:strokeWidth` greater to `2dp` (or more), and set
 
 The color state list `res/color/focus_indicator_color_state_list.xml` is:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true" android:color="@color/focus_indicator_outline" />
@@ -38,7 +38,7 @@ The color `@color/focus_indicator_outline` also needs to be defined appropriatel
 
 Setting `android:background` to a drawable state list resource that in turn points to an outline drawable can produce a more visible focus indicator.
 
-```
+```xml
 <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/text_input_layout_example"
     ...
@@ -53,7 +53,7 @@ Setting `android:background` to a drawable state list resource that in turn poin
 
 The drawable state list `res/drawable/focus_indicator_selector.xml` is:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true" android:drawable="@drawable/focus_indicator_shape" />
@@ -63,7 +63,7 @@ The drawable state list `res/drawable/focus_indicator_selector.xml` is:
 
 And the outline drawable `res/drawable/focus_indicator_shape.xml` is:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
@@ -82,7 +82,7 @@ Again, the color `@color/focus_indicator_outline` needs to be defined appropriat
 
 Starting with Android API level 23, the property `android:foreground` is available and can be assigned a drawable state list for controls which already provide a defined background (such as `ImageButton` with its ripple background on selection). This technique also works with `SwitchMaterial`, `MaterialCheckBox`, `EditText`, and `TextInputLayout`/`TextInputEditText`, but not with `MaterialButton`.
 
-```
+```xml
 <ImageButton
     ...
     android:foreground="@drawable/focus_indicator_selector" />

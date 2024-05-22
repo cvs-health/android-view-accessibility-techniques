@@ -11,7 +11,7 @@ Note that fields with `accessibilityLiveRegion` active will announce their value
 
 In the following example, whenever the `counter` field's text is updated, its new value will be announced to accessibility services.
 
-```
+```xml
 <TextView
     android:id="@+id/counter"
     ...
@@ -25,7 +25,7 @@ The `View.announceForAccessibility()` method can be called at any point from cod
 
 The following example shows code announcing when a waiting indicator is dismissed using `announceForAccessibility()`. 
 
-```
+```kotlin
 binding.waitingIndicator.announceForAccessibility(
     "Loading completed."
 )

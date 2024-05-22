@@ -5,7 +5,7 @@ When "Remove animations" is enabled in a device's Settings app, Android sets the
 
 The following `Context` extension functions make it easier to determine if setting is enabled has been done, and allow disabling each specific type of animation based on its specific global setting:
 
-```
+```kotlin
 fun Context.isTransitionAnimationEnabled(): Boolean =
     Settings.Global.getFloat(this.contentResolver, Settings.Global.TRANSITION_ANIMATION_SCALE, 0f) != 0f
 fun Context.isAnimatorAnimationEnabled(): Boolean =

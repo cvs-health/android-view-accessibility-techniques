@@ -7,7 +7,7 @@ In this way, a button that might normally announce its action as "Double-tap to 
 
 A customized action label is added to a button by assigning an `AccessibilityDelegate` that applies `addAction()` to the preexisting standard click action's id (`AccessibilityAction.ACTION_CLICK.getId()`) with the custom label text (in this case, `"show details"`):
 
-```
+```kotlin
 binding.showDetailsButton.accessibilityDelegate = object : View.AccessibilityDelegate() {
     override fun onInitializeAccessibilityNodeInfo(
         host: View,

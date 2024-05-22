@@ -5,7 +5,7 @@ All informative non-text content must have a text alternative associated with it
 
 Examples of informative non-text content include `ImageView` elements that convey information and `ImageButton` controls without text. Use a non-empty `android:contentDescription` property value to provide the text alternative.
 
-```
+```xml
 <ImageView
     ...
     android:src="@drawable/ic_sunrise_fill"
@@ -13,7 +13,7 @@ Examples of informative non-text content include `ImageView` elements that conve
 />
 ```
 
-```
+```xml
 <ImageButton
     android:id="@+id/image_button_example_6"
     ...
@@ -26,14 +26,14 @@ Examples of informative non-text content include `ImageView` elements that conve
 
 Purely decorative content that conveys no meaning must be marked as such with either a null `contentDescription` or `importantForAccessibility="no"`. 
 
-```
+```xml
 <ImageView
     ...
     android:src="@drawable/ic_sprout_fill"
     android:contentDescription="@null"/>
 ```
 
-```
+```xml
 <ImageView
     ...
     android:src="@drawable/ic_sprout_fill"
@@ -45,7 +45,7 @@ Purely decorative content that conveys no meaning must be marked as such with ei
 Informative non-text content that is redundant with adjacent text content should be grouped with that text content, rather than given a redundant `contentDescription`. Using `importantForAccessibility="yes"` on the enclosing group layout (and nulling out the non-text content's `contentDescription`) is the simplest way to achieve this.
 
 
-```
+```xml
 <!-- Good example of grouping content: 
      Enclosing LinearLayout has importantForAccessibility="yes" and
      check mark ImageView has null contentDescription. -->

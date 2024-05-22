@@ -5,14 +5,14 @@ Some controls, such as `Button` and `ImageButton` are focusable by default, so d
 
 (For some recent versions of Android, only applying the `onClickListener` is necessary, but for backward-compatibility, set `android:focusable="true"` as well.)
 
-```
+```xml
 <ImageView
     android:id="@+id/show_hello_world"
     ...
     android:focusable="true"
     android:contentDescription="Show 'Hello world!' snackbar" />
 ```
-```
+```kotlin
 binding.showHelloWorld.setOnClickListener {
     Snackbar.make(binding.root, "Hello world!", Snackbar.LENGTH_LONG).show()
 }

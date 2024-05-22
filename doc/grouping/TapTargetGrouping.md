@@ -8,7 +8,7 @@ The key techniques are:
     * `android:focusable="true"` (for keyboard focusability on older versions of Android)
     * `android:background="?attr/selectableItemBackground"` (to show taps with the proper selection ripple effect)
 
-```
+```xml
 <LinearLayout
     android:id="@+id/linear_layout_example"
     android:layout_width="match_parent"
@@ -40,7 +40,7 @@ The key techniques are:
 
 * Apply the `onClickListener` to the enclosing layout, not the enclosed visual tap targets.
 
-```
+```kotlin
 binding.linearLayoutExample.setOnClickListener {
     Snackbar
         .make(binding.root, "Group tap target clicked", Snackbar.LENGTH_LONG)
