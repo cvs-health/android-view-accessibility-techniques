@@ -18,7 +18,7 @@ The key techniques for content grouping are:
 
 To group content, enclose all the relevant content elements in a single layout ViewGroup and set `android:importantForAccessibility="yes"` on that ViewGroup. This property makes the ViewGroup focusable by a screen reader and tells the screen reader to combine all child element text into a single announcement. 
 
-```
+```xml
 <!-- All of this card's content will be grouped for accessibility. -->
 <com.google.android.material.card.MaterialCardView
     ...
@@ -60,7 +60,7 @@ Group any separate content labels with their associated text values. For example
 
 * Complex data tables also require different handling. (See [Text Alternatives](../basics/TextAlternatives.md) for an overview.)
 
-```
+```xml
 <!-- This simple table correctly groups "City" with "Boston" 
      and "Population (in 2020)" with "675,647" for accessibility
      services by using layout structure and 

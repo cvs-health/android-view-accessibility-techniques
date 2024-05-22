@@ -1,7 +1,7 @@
 # Content Group Replacement
 Sometimes content groups should be replaced with a single text that better describes the group for a screen reader user. Applying the `android:contentDescription` property to the enclosing `ViewGroup` layout element performs such replacement. 
 
-```
+```xml
 <LinearLayout
     android:id="@+id/rating_section"
     android:layout_width="match_parent"
@@ -36,7 +36,7 @@ If this content were just grouped together, it would be announced poorly by the 
 
 Although the preceding layout snippet uses fixed values for `android:contentDescription` and `android:text`, these values are generally set to dynamic values in code, as follows.
 
-```
+```kotlin
 val rating = 3.4f
 val maxRating = 5
 

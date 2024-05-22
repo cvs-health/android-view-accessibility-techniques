@@ -7,7 +7,7 @@ There are several techniques for achieving appropriate touch target size on an `
 
 * Use a drawable resource of the correct size. 
  
-```
+```xml
 <!-- Since the drawable resource is 24dp-by-24dp, this ImageButton
      meets minimum, but not recommended, guidelines. -->
 <ImageButton
@@ -20,7 +20,7 @@ There are several techniques for achieving appropriate touch target size on an `
 
 * Fix `android:layout_width` and `android:layout_height` to `48dp` -- but only if you know the underlying drawable is that size or smaller.
 
-```
+```xml
 <ImageButton
     android:id="@+id/image_button_example_2"
     android:layout_width="48dp"
@@ -31,7 +31,7 @@ There are several techniques for achieving appropriate touch target size on an `
 
 * Add `android:padding` to expand a drawable's known size to meet the minimum. 
 
-```
+```xml
 <!-- Since this drawable is a 24dp-by-24dp image, 12dp of padding will
      expand the button appropriately to 48dp-by-48dp. -->
 <ImageButton
@@ -45,7 +45,7 @@ There are several techniques for achieving appropriate touch target size on an `
 
 * Set `android:minWidth` and `android:minHeight` to `48dp`. (Best practice)
 
-```
+```xml
 <ImageButton
     android:id="@+id/image_button_example_4"
     android:layout_width="wrap_content"

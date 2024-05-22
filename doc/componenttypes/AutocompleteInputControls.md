@@ -9,7 +9,7 @@ There are two common approaches to incorporating `AutoCompleteTextView` into a l
 
 If `AutoCompleteTextView` is accompanied by a sibling `TextView` as its visual label, be sure to use `android:labelFor` on the `TextView` indicating the autocomplete control's `android:id`.
 
-```
+```xml
 <TextView
     ...
     android:text="US State"
@@ -25,7 +25,7 @@ If `AutoCompleteTextView` is accompanied by a sibling `TextView` as its visual l
 
 If `AutoCompleteTextView` is incorporated into a `TextInputLayout` to provide its visual label, apply `style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"` to get a "drop-down menu" appearance.
 
-```
+```xml
 <com.google.android.material.textfield.TextInputLayout
     ...
     android:hint="US State"

@@ -6,7 +6,7 @@ The primary technique for setting the soft keyboard type is applying the correct
 
 In the following example, a text input field accepts a phone number using the dial keypad style of soft keyboard using `android:inputType="phone"`.
 
-```
+```xml
 <com.google.android.material.textfield.TextInputLayout
     ...
     android:hint="Phone" >

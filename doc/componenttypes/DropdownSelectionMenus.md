@@ -5,7 +5,7 @@ To create dropdown list controls that announce their name, role, and value in ac
 
 Use the pre-Material Design control `Spinner` with a `TextView` label to create a dropdown selection menu in the original Android style.
 
-```
+```xml
 <TextView
     ...
     android:text="Payment type"
@@ -25,7 +25,7 @@ Use the [Exposed Dropdown Menu pattern](https://m2.material.io/components/menus#
 
 * `android:inputType="none"` is used to prevent this `AutoCompleteTextView` from accepting user keyboard text (only data from the dropdown selection list is allowed).
 
-```
+```xml
 <com.google.android.material.textfield.TextInputLayout
     ...
     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"

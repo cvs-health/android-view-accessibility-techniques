@@ -7,7 +7,7 @@ But if layout elements are used to manually create a visual list, then `Accessib
 
 The following extension functions make manually applying list semantics straightforward.
 
-```
+```kotlin
 /**
  * Add accessibility collection semantics to a LinearLayout. 
  * Used for manually marking visually-presented lists with list semantics.
@@ -53,7 +53,7 @@ fun View.addListItemSemantics(index: Int) {
 
 Given the following unnumbered list layout, list semantics can be applied in code as below.
 
-```
+```xml
 <LinearLayout
     android:id="@+id/unnumbered_list_layout"
     android:layout_width="match_parent"
@@ -75,7 +75,7 @@ Given the following unnumbered list layout, list semantics can be applied in cod
 ```
 
 
-```
+```kotlin
 binding.unnumberedListLayout.addListSemantics(size = 2)
 ```
 
@@ -83,7 +83,7 @@ TalkBack will then announce "In list" when entering the list and "Out of list" w
 
 Given the following numbered list layout, list semantics can be applied in code as below.
 
-```
+```xml
 <LinearLayout
     android:id="@+id/numbered_list_layout"
     android:layout_width="match_parent"
@@ -106,7 +106,7 @@ Given the following numbered list layout, list semantics can be applied in code 
 
 ```
 
-```
+```kotlin
 binding.numberedListLayout.addListSemantics(size = 2)
 binding.textPoint1.addListItemSemantics(index = 0)
 binding.textPoint2.addListItemSemantics(index = 1)
