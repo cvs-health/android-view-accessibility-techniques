@@ -15,7 +15,7 @@ The third rule insures that the entire text can display by reflowing vertically 
 
 
 
-```
+```xml
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

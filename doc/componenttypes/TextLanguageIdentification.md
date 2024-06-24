@@ -3,7 +3,7 @@ Texts in different languages will be mispronounced by the text-to-speech engine 
 
 The main technique to support proper text identification on a mixed-language page, and especially in a mixed-language `TextView` text is `LocaleSpan`.
 
-```
+```kotlin
 val exampleText = "The phrase \"plus ça change, plus c\'est la même chose\" translates as \"the more things change, the more they stay the same.\""
 val wrappedExampleText = SpannableString(exampleText)
 val firstQuotationMarkLocation = exampleText.indexOf('"')

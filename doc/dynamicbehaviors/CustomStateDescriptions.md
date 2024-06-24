@@ -3,7 +3,7 @@ Some standard Android controls also contain _state_ which they expose to Accessi
 
 To change the state description of a stateful `View` control, use `ViewCompat.setStateDescription()` as follows: 
 
-```
+```kotlin
 ViewCompat.setStateDescription(
     binding.alarmCheckbox,
     if (binding.alarmCheckbox.checkedState == MaterialCheckBox.STATE_CHECKED)
@@ -17,7 +17,7 @@ This `CheckBox` will announce its state in TalkBack as "Activated" or "Deactivat
 
 It is also often appropriate to customize the standard click action description to match the state being changed to, instead of the standard "Double-tap to toggle" announcement.
 
-```
+```kotlin
 binding.alarmCheckbox.accessibilityDelegate = object : View.AccessibilityDelegate() {
     override fun onInitializeAccessibilityNodeInfo(
         host: View,

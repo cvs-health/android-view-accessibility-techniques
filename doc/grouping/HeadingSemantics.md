@@ -7,7 +7,7 @@ Two techniques can be used to mark content as a heading for accessibility.
     * Note: This property may be applied to `TextView` or to layout elements that group heading content.
 * For support below API level 28, apply an `AccessibilityDelegateCompat` to a `View` using `ViewCompat.setAccessibilityDelegate()` that sets the `AccessibilityNodeInfoCompat.isHeading` property to `true`. 
 
-```
+```kotlin
 ViewCompat.setAccessibilityDelegate(
     binding.heading, 
     object : AccessibilityDelegateCompat() {
@@ -24,7 +24,7 @@ ViewCompat.setAccessibilityDelegate(
 
 The following extension function simplifies applying the heading property to a `View`.
 
-```
+```kotlin
 fun View.setAsAccessibilityHeading() {
     ViewCompat.setAccessibilityDelegate(
         this, 
@@ -43,7 +43,7 @@ fun View.setAsAccessibilityHeading() {
 
 Marking an element as an accessibility heading then becomes a simple application of the extension function.
 
-```
+```kotlin
 binding.heading.setAsAccessibilityHeading()
 ```
 

@@ -251,8 +251,8 @@
     <string name="focusable_controls_example_3_image_alt_text">Tap this ImageButton with onTouchListener to display a Snackbar</string>
     <string name="focusable_controls_example_3_message">Example 3 ImageButton with onTouch handler tapped.</string>
     <string name="focusable_controls_example_3_description">An ImageButton with onTouchListener is focusable using the keyboard and Switch Access, but it is not activatable with either. It announces as actionable in TalkBack, but does not activate on double-tap when selected.</string>
-    <string name="focusable_controls_example_4_heading">Good example 4: Focuable ImageView with onClickListener</string>
-    <string name="focusable_controls_example_4_image_alt_text">Click this focuable ImageView with onClickListener to display a Snackbar</string>
+    <string name="focusable_controls_example_4_heading">Good example 4: Focusable ImageView with onClickListener</string>
+    <string name="focusable_controls_example_4_image_alt_text">Click this focusable ImageView with onClickListener to display a Snackbar</string>
     <string name="focusable_controls_example_4_message">Example 4 ImageView with onClickListener activated.</string>
     <string name="focusable_controls_example_4_description">An ImageView with android:focusable=\"true\" and onClickListener is focusable and activatable using the keyboard, Switch Access, and TalkBack.</string>
     <string name="focusable_controls_example_5_heading">Good example 5: ImageButton with onClickListener</string>

@@ -9,7 +9,7 @@ One set of techniques that can help provide input error announcements involves t
 
 * When the field value is valid, set the `TextInputLayout.error` property to the empty string to clear any prior error messages.
 
-```
+```xml
 <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/textinputlayout_name"
     ...
@@ -24,7 +24,7 @@ One set of techniques that can help provide input error announcements involves t
 </com.google.android.material.textfield.TextInputLayout>
 ```
 
-```
+```kotlin
 if (validationResults.isNameInError) {
     binding.textinputlayoutName.apply {
         // Put accessibility focus on the name field if it is in error.        

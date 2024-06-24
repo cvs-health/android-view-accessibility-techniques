@@ -7,18 +7,18 @@ Two approaches to creating links inline with text are adding HTML anchor tags in
 
 Embed an HTML anchor tag in a string resource displayed by a `TextView` to create a link inline with the text. Adding an HTML `<a>` tag to a string resource used by a `TextView` is straightforward, but making a workable link also requires setting the `TextView.movementMethod` in code.
 
-```
+```xml
     <string name="anchor_tag_string">This string contains an HTML anchor tag link: <a href="https://www.google.com/search?q=android+link+in+textview">Search for \"android link in textview\"</a>.</string>
 ```
 
-```
+```xml
 <com.google.android.material.textview.MaterialTextView
     android:id="@+id/anchor_tag_text_view"
     ...
     android:text="@string/anchor_tag_string" />
 ```
 
-```
+```kotlin
 binding.anchorTagTextView.movementMethod = LinkMovementMethod.getInstance()
 ```
 
@@ -26,7 +26,7 @@ binding.anchorTagTextView.movementMethod = LinkMovementMethod.getInstance()
 
 Use an URLSpan in code to impose one or more links on segments of text in a `SpannableString`, then assign that text to a `TextView`, and set the `TextView.linkMovementMethod` as before.
 
-```
+```kotlin
 val text = SpannableString("Text containing an URLSpan.")
 val start = text.indexOf("URLSpan")
 val end = start + "URLSpan".length

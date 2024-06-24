@@ -21,7 +21,7 @@ Set the property `android:nextFocusForward` to the `android:id` of the next elem
 
 * Care must be taken never to create a focus loop by pointing `android:nextFocusForward` to an element id that is earlier in the  focus order.
 
-```
+```xml
 <LinearLayout
     ...
     android:orientation="horizontal">
