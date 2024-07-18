@@ -58,7 +58,7 @@ Group any separate content labels with their associated text values. For example
 
 * Note that associating active controls and their labels requires different techniques. (See [Input Field Labels](../basics/InputFieldLabels.md) for details.)
 
-* Complex data tables also require different handling. (See [Text Alternatives](../basics/TextAlternatives.md) for an overview.)
+* Complex data tables also require different handling.
 
 ```xml
 <!-- This simple table correctly groups "City" with "Boston" 
