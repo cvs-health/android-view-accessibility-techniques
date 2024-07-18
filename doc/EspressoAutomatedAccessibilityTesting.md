@@ -5,17 +5,17 @@ The following steps will add this functionality to all UI tests:
 
 * In `app/build.gradle`, add the Espresso and Espresso Accessibility library dependencies:
 
-```
+```kotlin
 dependencies {
     ...
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.4.0'
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation("androidx.test.espresso:espresso-accessibility:3.6.1")
 }
 ```
 
 * Create a custom test runner class:
 
-```
+```kotlin
 import androidx.test.espresso.accessibility.AccessibilityChecks
 import androidx.test.runner.AndroidJUnitRunner
 
@@ -34,12 +34,12 @@ The `.setThrowExceptionFor(...)` method will insure that the appropriate level o
 
 * In `app/build.gradle`, declare the custom test runner in `defaultConfig`:
 
-```
+```kotlin
 android {
     ...
     defaultConfig {
         ...
-        testInstrumentationRunner 'com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.AccessibilityChecksTestRunner'
+        testInstrumentationRunner = "com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.AccessibilityChecksTestRunner"
     }
     ...
 }
@@ -47,7 +47,7 @@ android {
 
 * Create Espresso UI tests that exercise all controls that you want checked for accessibility issues. The test must perform a `ViewAction` for accessibility checks to be run.
 
-```
+```kotlin
     ...
     @Test
     fun testCheckbox() {

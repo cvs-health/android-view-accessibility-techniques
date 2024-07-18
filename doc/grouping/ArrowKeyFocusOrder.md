@@ -10,7 +10,7 @@ The following properties control arrow key focus order:
 * `android:nextFocusLeft` -- sets the id of the element to go to when the "Left" arrow key is pressed.
 * `android:nextFocusRight` -- sets the id of the element to go to when the "Right" arrow key is pressed.
 
-```
+```xml
 <androidx.constraintlayout.widget.ConstraintLayout ... >
     
     <ImageButton

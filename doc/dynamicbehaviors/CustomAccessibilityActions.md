@@ -11,7 +11,7 @@ To implement custom accessibility actions, four steps are required:
 This setting prevents those elements from appearing 
 individually in Accessibility Services while remaining touch clickable and keyboard focusable.
 
-```
+```xml
 <com.google.android.material.card.MaterialCardView
     android:id="@+id/card"
     ... />
@@ -28,7 +28,7 @@ individually in Accessibility Services while remaining touch clickable and keybo
 
 * Declare ids for the custom accessibility actions in `res/values/ids.xml`.
 
-```
+```xml
 <resources>
     <item name="show_details" type="id"/>
     <item name="like_post" type="id"/>
@@ -37,7 +37,7 @@ individually in Accessibility Services while remaining touch clickable and keybo
 
 * In code, add an `AccessibilityDelegate` to each card (or list item) that adds custom accessibility actions with `AccessibilityNodeInfo.addAction()` and a new instance of `AccessibilityNodeInfo.AccessibilityAction` for each custom action.
 
-```
+```kotlin
 card.accessibilityDelegate = object : View.AccessibilityDelegate() {
     override fun onInitializeAccessibilityNodeInfo(
         host: View,
@@ -63,7 +63,7 @@ card.accessibilityDelegate = object : View.AccessibilityDelegate() {
 
 * Also in the `AccessibilityDelegate`, override `fun performAccessibilityAction()` and handle when the custom actions are selected.
 
-```
+```kotlin
 ...
     override fun performAccessibilityAction(
         host: View,

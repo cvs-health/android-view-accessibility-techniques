@@ -9,7 +9,7 @@ Text input fields can be autofilled by supplying the android:autofillHints prope
 
 * This approach, and supplying `android:inputType`, are necessary to fulfill WCAG [Success Criterion 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG22/#identify-input-purpose) on Android.
 
-```
+```xml
 <com.google.android.material.textfield.TextInputLayout
     ...
     android:hint="Phone" >
