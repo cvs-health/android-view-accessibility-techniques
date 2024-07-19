@@ -79,6 +79,7 @@ if (pageModel.accordionExpanded) {
 }
 ```
 
+Accordion controls also frequently serve as top-level section headings on a screen. If so, be sure to mark them with accessibility [heading semantics](../grouping/HeadingSemantics.md).
 
 ----
 
