@@ -18,10 +18,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
-kotlin {
-    jvmToolchain(17)
-}
-
 android {
     compileSdk = 34
     buildToolsVersion = "34.0.0"
@@ -48,6 +44,13 @@ android {
         buildConfig = true
     }
     namespace = "com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques"
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
