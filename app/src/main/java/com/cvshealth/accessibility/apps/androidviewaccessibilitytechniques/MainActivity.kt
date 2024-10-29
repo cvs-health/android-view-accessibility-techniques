@@ -16,11 +16,13 @@
 package com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.forEach
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +41,17 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        // Force the default Toolbar title to be a semantic heading. This code is a hack, as it
+        // relies on the internal implementation of the Toolbar class. Instead, prefer overriding
+        // the default Toolbar content, and setting the custom title TextView to be a semantic
+        // heading. Or don't make the top app bar title a semantic heading; it's not required.
+        binding.appBarMain.toolbar.forEach { view ->
+            if (view is TextView) {
+                view.setAsAccessibilityHeading()
+                return@forEach
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

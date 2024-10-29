@@ -1,5 +1,5 @@
 # Heading Semantics
-Top-level heading text must be marked as an accessibility heading. This supports the WCAG [Success Criterion 1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships), which requires information conveyed through presentation (such as larger-sized heading text) to be programmatically available to accessibility services.
+The headings of the most important sections of a screen must be marked as semantic accessibility headings. This supports the WCAG [Success Criterion 1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships), which requires information conveyed through presentation (such as larger-sized heading text) to be programmatically available to accessibility services. However, Android only has one level of heading, unlike the web which has multiple heading levels, so which headings should be marked as semantic headings presents design trade-offs.
 
 Two techniques can be used to mark content as a heading for accessibility.
 
@@ -51,7 +51,8 @@ Notes:
 
 * One complication of heading semantics on Android is that list items in the standard list classes (such as `RecyclerView`) can not be accessibility headings; the `isHeading` property is simply ignored for list items. Logically, this makes a certain sense since list `ViewHolder` items are not permanent, but are recycled as the list is scrolled.
 * Never use `android:contentDescription` to append an accessibility property like "Heading" to a `View`. It may sound almost correct in TalkBack, but doesn't work correctly.
-* Native Android apps do not have multiple heading levels. Only mark top-level headings as a heading.
+* Native Android apps do not have multiple heading levels, so navigation of complex information hierarchies using headings in TalkBack can be challenging. Consider limiting screen content and only marking top-level section headings as semantic headings.
+* It is helpful to make app bar titles semantic headings. However, a `Toolbar` _default_ title `TextView` can only be made a semantic heading using a hack that relies on the internal details of the `Toolbar` class. This approach is demonstrated in [MainActivity.kt](/app/src/main/java/com/cvshealth/accessibility/apps/androidviewaccessibilitytechniques/MainActivity.kt) for reference, but is not recommended.
 
 ----
 
