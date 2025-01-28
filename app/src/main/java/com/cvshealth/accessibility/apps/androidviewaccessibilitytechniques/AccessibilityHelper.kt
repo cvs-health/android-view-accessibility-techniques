@@ -1,5 +1,5 @@
 /*
-   Copyright 2023-2024 CVS Health and/or one of its affiliates
+   Copyright 2023-2025 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ import android.content.Context
 import android.os.Build
 import android.provider.Settings
 import android.view.View
+import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.LinearLayout
 import android.widget.RadioButton
@@ -125,6 +126,10 @@ fun Context.isAnimationDisabled(): Boolean =
 /**
  * Add a RadioGroup label to a RadioButton for accessibility.
  *
+ * TODO: Generalize to add a group label for any interactive View, not just RadioButton.
+ * Note: For Android 16+, refactor this extension function to use info.addLabeledBy and add a function
+ * for info.removeLabeledBy (if needed).
+ *
  * @param radioGroupLabelView the [View] which labels the [RadioGroup] as a whole
  */
 fun RadioButton.setRadioGroupHeading(radioGroupLabelView: View) {
@@ -138,6 +143,26 @@ fun RadioButton.setRadioGroupHeading(radioGroupLabelView: View) {
             // Key technique: Use setLabeledBy() to associate a group label View with a RadioButton.
             // This is done in addition to setting the RadioButton's field label with android:text.
             info.setLabeledBy(radioGroupLabelView)
+        }
+    })
+}
+
+/**
+ * Add a container title to a ViewGroup for accessibility.
+ *
+ * @param containerTitle the [CharSequence] which labels the [ViewGroup] as a whole
+ */
+fun ViewGroup.setContainerTitle(containerTitle: CharSequence) {
+    ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
+        override fun onInitializeAccessibilityNodeInfo(
+            host: View,
+            info: AccessibilityNodeInfoCompat
+        ) {
+            super.onInitializeAccessibilityNodeInfo(host, info)
+
+            // Key technique: Use setContainerTitle() to associate a group label with a ViewGroup.
+            // This group label will be applied to all of the container's content Views.
+            info.containerTitle = containerTitle
         }
     })
 }

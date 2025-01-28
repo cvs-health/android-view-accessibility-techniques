@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   Copyright 2023-2024 CVS Health and/or one of its affiliates
+   Copyright 2023-2025 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -599,6 +599,19 @@
         </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_9_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/input_field_labels_example_9_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_9_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/radio_group_associated_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -609,7 +622,7 @@
             android:text="@string/input_field_labels_associated_radio_group_label"
             style="@style/TextAppearance.MaterialComponents.Body1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_9_heading"/>
+            app:layout_constraintTop_toBottomOf="@id/text_example_9_description"/>
 
         <!-- The first key technique of Example 9 is enclosing the RadioButtons in a <RadioGroup>,
              so they will receive list semantics and their single-selection behavior is
@@ -645,7 +658,8 @@
                 />
         </RadioGroup>
 
-        <!-- Good example 10: Button with associated text label (text) -->
+        <!-- Good example 10: RadioButton with associated group label (containerTitle) and field
+             label (text) -->
         <LinearLayout
             android:id="@+id/linear_layout_example_10_heading"
             android:layout_width="match_parent"
@@ -680,7 +694,102 @@
 
         </LinearLayout>
 
-        <!-- The key technique in Example 10 is using the android:text property to apply a label to
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_example_10_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/input_field_labels_example_10_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_10_heading"
+            style="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/radio_group_associated_label_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/input_field_labels_associated_radio_group_label"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_example_10_description"/>
+
+        <!-- The first key technique of Example 10 is enclosing the RadioButtons in a <RadioGroup>,
+             so they will receive list semantics and their single-selection behavior is
+             automatically handled. -->
+        <RadioGroup
+            android:id="@+id/radio_group_associated_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_group_associated_label_2"
+            >
+
+            <!-- The second key technique in Example 10 is using the android:text property to apply a label to
+                 the RadioButton control. -->
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radiobutton_associated_1X"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/input_field_labels_associated_radio_button_label_1"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radiobutton_associated_2X"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/input_field_labels_associated_radio_button_label_2"
+                />
+        </RadioGroup>
+
+        <!-- Good example 11: Button with associated text label (text) -->
+        <LinearLayout
+            android:id="@+id/linear_layout_example_11_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:importantForAccessibility="yes"
+            android:accessibilityHeading="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_group_associated_2"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@drawable/ic_check_fill"
+                android:contentDescription="@null"
+                app:tint="@color/success_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/input_field_labels_example_11"
+                style="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        </LinearLayout>
+
+        <!-- The key technique in Example 11 is using the android:text property to apply a label to
              the Button control. -->
         <Button
             android:id="@+id/button_associated"
@@ -691,9 +800,9 @@
             android:layout_marginEnd="8dp"
             android:text="@string/input_field_labels_associated_button_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_10_heading" />
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_11_heading" />
 
-        <!-- OK example 11: Slider with contentDescription and no labelFor.
+        <!-- OK example 12: Slider with contentDescription and no labelFor.
 
         Note: Slider accessibility labeling is a mess as of this writing (2022-09-21). See
         https://github.com/material-components/material-components-android/issues/2348 and
@@ -708,7 +817,7 @@
         Yet, if you remove ACTION_CLICK, the slider's thumb becomes inaccessible.)
         -->
         <LinearLayout
-            android:id="@+id/linear_layout_example_11_heading"
+            android:id="@+id/linear_layout_example_12_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -736,7 +845,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_gravity="center_vertical"
-                android:text="@string/input_field_labels_example_11"
+                android:text="@string/input_field_labels_example_12"
                 style="@style/TextAppearance.MaterialComponents.Headline6" />
 
         </LinearLayout>
@@ -752,10 +861,10 @@
             android:text="@string/input_field_labels_associated_slider_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_11_heading"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_12_heading"
             style="@style/TextAppearance.MaterialComponents.Body1" />
 
-        <!-- The key technique in Example 11 is setting android:contentDescription on the Slider
+        <!-- The key technique in Example 12 is setting android:contentDescription on the Slider
              control. -->
         <com.google.android.material.slider.Slider
             android:id="@+id/slider_associated"
@@ -773,9 +882,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_slider_label" />
 
-        <!-- Good example 12: Slider with contentDescription and labelFor text -->
+        <!-- Good example 13: Slider with contentDescription and labelFor text -->
         <LinearLayout
-            android:id="@+id/linear_layout_example_12_heading"
+            android:id="@+id/linear_layout_example_13_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -803,12 +912,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_gravity="center_vertical"
-                android:text="@string/input_field_labels_example_12"
+                android:text="@string/input_field_labels_example_13"
                 style="@style/TextAppearance.MaterialComponents.Headline6" />
 
         </LinearLayout>
 
-        <!-- The first key technique in Example 12 is associating the visual label TextView with
+        <!-- The first key technique in Example 13 is associating the visual label TextView with
              the Slider control using android:labelFor. -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/text_slider_2_label"
@@ -821,10 +930,10 @@
             android:labelFor="@+id/slider_associated_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_12_heading"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_13_heading"
             style="@style/TextAppearance.MaterialComponents.Body1" />
 
-        <!-- The second key technique of Example 12 is setting android:contentDescription on the
+        <!-- The second key technique of Example 13 is setting android:contentDescription on the
              Slider control. -->
         <com.google.android.material.slider.Slider
             android:id="@+id/slider_associated_2"
@@ -842,9 +951,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_slider_2_label" />
 
-        <!-- Good example 13: RangeSlider with contentDescription and labelFor text -->
+        <!-- Good example 14: RangeSlider with contentDescription and labelFor text -->
         <LinearLayout
-            android:id="@+id/linear_layout_example_13_heading"
+            android:id="@+id/linear_layout_example_14_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -872,12 +981,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_gravity="center_vertical"
-                android:text="@string/input_field_labels_example_13"
+                android:text="@string/input_field_labels_example_14"
                 style="@style/TextAppearance.MaterialComponents.Headline6" />
 
         </LinearLayout>
 
-        <!-- The first key technique in Example 13 is associating the visual label TextView with
+        <!-- The first key technique in Example 14 is associating the visual label TextView with
              the RangeSlider control using android:labelFor. -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/text_range_slider_label"
@@ -890,10 +999,10 @@
             android:labelFor="@+id/range_slider_associated"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_13_heading"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_example_14_heading"
             style="@style/TextAppearance.MaterialComponents.Body1" />
 
-        <!-- The second key technique of Example 13 is setting android:contentDescription on the
+        <!-- The second key technique of Example 14 is setting android:contentDescription on the
              RangeSlider control. -->
         <com.google.android.material.slider.RangeSlider
             android:id="@+id/range_slider_associated"

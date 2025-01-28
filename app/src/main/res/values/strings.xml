@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   Copyright 2023-2024 CVS Health and/or one of its affiliates
+   Copyright 2023-2025 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -80,21 +80,24 @@
     <string name="input_field_labels_associated_switch_label">Field label associated with Switch</string>
     <string name="input_field_labels_example_8">Bad example 8: RadioButtons without associated group and field labels</string>
     <string name="input_field_labels_unassociated_radio_group_label">Radio group label not associated with RadioButtons</string>
-    <string name="input_field_labels_unassociated_radio_button_label_1">Field label not associated with RadioButton</string>
-    <string name="input_field_labels_unassociated_radio_button_label_2">Second field label not associated with RadioButton</string>
-    <string name="input_field_labels_example_9">Good example 9: RadioButtons with associated group (setLabeledBy) and field labels (text)</string>
+    <string name="input_field_labels_unassociated_radio_button_label_1">Field label not associated with first RadioButton</string>
+    <string name="input_field_labels_unassociated_radio_button_label_2">Field label not associated with second RadioButton</string>
+    <string name="input_field_labels_example_9">Good example 9: RadioButtons with associated group (labeledBy) and field labels (text)</string>
+    <string name="input_field_labels_example_9_description">Note how TalkBack announces the group label on every focused RadioButton.</string>
     <string name="input_field_labels_associated_radio_group_label">Radio group label</string>
-    <string name="input_field_labels_associated_radio_button_label_1">Field label associated with RadioButton</string>
-    <string name="input_field_labels_associated_radio_button_label_2">Second field label associated with RadioButton</string>
-    <string name="input_field_labels_example_10">Good example 10: Button with associated text label (text)</string>
+    <string name="input_field_labels_associated_radio_button_label_1">Field label associated with first RadioButton</string>
+    <string name="input_field_labels_associated_radio_button_label_2">Field label associated with second RadioButton</string>
+    <string name="input_field_labels_example_10">Good example 10: RadioButtons with associated group (containerTitle) and field labels (text)</string>
+    <string name="input_field_labels_example_10_description">Note how TalkBack only announces the group label on the first focused RadioButton.</string>
+    <string name="input_field_labels_example_11">Good example 11: Button with associated text label (text)</string>
     <string name="input_field_labels_associated_button_label">Button label</string>
-    <string name="input_field_labels_example_11">OK example 11: Slider with contentDescription and no labelFor</string>
+    <string name="input_field_labels_example_12">OK example 12: Slider with contentDescription and no labelFor</string>
     <string name="input_field_labels_associated_slider_label">Slider label</string>
     <string name="input_field_labels_associated_slider_content_description">Slider content description</string>
-    <string name="input_field_labels_example_12">Good example 12: Slider with contentDescription and labelFor text</string>
+    <string name="input_field_labels_example_13">Good example 13: Slider with contentDescription and labelFor text</string>
     <string name="input_field_labels_associated_slider_2_label">Slider label</string>
     <string name="input_field_labels_associated_slider_2_content_description">Slider content description</string>
-    <string name="input_field_labels_example_13">Good example 13: RangeSlider with contentDescription and labelFor text</string>
+    <string name="input_field_labels_example_14">Good example 14: RangeSlider with contentDescription and labelFor text</string>
     <string name="input_field_labels_associated_range_slider_label">Range slider label</string>
     <string name="input_field_labels_associated_range_slider_content_description">Range slider content description</string>
 

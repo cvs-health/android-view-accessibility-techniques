@@ -1,5 +1,5 @@
 /*
-   Copyright 2023-2024 CVS Health and/or one of its affiliates
+   Copyright 2023-2025 CVS Health and/or one of its affiliates
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -20,8 +20,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.R
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.databinding.FragmentInputFieldLabelsBinding
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setAsAccessibilityHeading
+import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setContainerTitle
 import com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques.setRadioGroupHeading
 
 const val UNGROUPED_RADIOBUTTON_SELECTED = "ungrouped_radiobutton_selected"
@@ -84,9 +86,15 @@ class InputFieldLabelsFragment : Fragment() {
             binding.radiobuttonUnassociated2.isChecked = true
         }
 
-        // Example 9: Associate RadioButtons with group label
+        // Example 9: Associate each RadioButton with the group label TextView.
         binding.radiobuttonAssociated1.setRadioGroupHeading(binding.radioGroupAssociatedLabel)
         binding.radiobuttonAssociated2.setRadioGroupHeading(binding.radioGroupAssociatedLabel)
+
+        // Example 10: Associate the RadioGroup with the group label string used by the group label
+        // TextView.
+        binding.radioGroupAssociated2.setContainerTitle(
+            requireContext().getString(R.string.input_field_labels_associated_radio_group_label)
+        )
 
         // Set initial RangeSlide selected values in Example 13.
         binding.rangeSliderAssociated.values = listOf(20.0f, 50.0f)

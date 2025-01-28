@@ -76,7 +76,7 @@ Note that `RadioButton` controls must always be enclosed in a `RadioGroup` contr
 
 In addition to applying a field label to each `RadioButton` using `android:text`, it is important to associate the radio button group label to each individual `RadioButton` in order to supply its selection context.
 
-This is done by manipulating each `RadioButton`'s `AccessibilityNodeInfo` object with the `setLabeledBy()` method. Doing that can be simplified with the following extension method:
+This can done by manipulating each `RadioButton`'s `AccessibilityNodeInfo` object with the `setLabeledBy()` method (`addLabeledBy()` in Android 16+). Doing that can be simplified with the following extension method:
 
 ```kotlin
 fun RadioButton.setRadioGroupHeading(radioGroupLabelView: View) {
@@ -101,6 +101,33 @@ This extension function associates a group label's `View` with `RadioButton`s as
 binding.radiobutton1.setRadioGroupHeading(binding.radioGroupLabel)
 binding.radiobutton2.setRadioGroupHeading(binding.radioGroupLabel)
 ```
+
+A group label can also be associated with `RadioButton`s by applying the `setContainerTitle()` method to the `RadioGroup`'s `AccessibilityNodeInfo` object. Doing that can be simplified with the following extension method:
+
+```kotlin
+fun ViewGroup.setContainerTitle(containerTitle: CharSequence) {
+    ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
+        override fun onInitializeAccessibilityNodeInfo(
+            host: View,
+            info: AccessibilityNodeInfoCompat
+        ) {
+            super.onInitializeAccessibilityNodeInfo(host, info)
+
+            // Key technique: Use setContainerTitle() to associate a group label with a ViewGroup.
+            // This group label will be applied to all of the container's content Views.
+            info.containerTitle = containerTitle
+        }
+    })
+}
+```
+
+This extension function associates a group label string with a `RadioGroup` as follows:
+
+```kotlin
+binding.radioGroup.setContainerTitle("Radio Group Label")
+```
+
+One difference between these two group labeling techniques is that `labeledBy` is announced by TalkBack on every control so labeled, while a `containerTitle` is only announced on the first control in the container that receives TalkBack focus.
 
 ## Labeling `Slider` and `RangeSlider` controls
 
@@ -153,7 +180,7 @@ Note when testing that Slider controls have two parts: the outer slider itself a
 
 ----
 
-Copyright 2023-2024 CVS Health and/or one of its affiliates
+Copyright 2023-2025 CVS Health and/or one of its affiliates
    
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
