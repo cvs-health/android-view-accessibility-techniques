@@ -19,13 +19,13 @@ plugins {
 }
 
 android {
-    compileSdk = 35
+    compileSdk = 36
     buildToolsVersion = "34.0.0"
 
     defaultConfig {
         applicationId = "com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques"
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
