@@ -17,6 +17,7 @@ package com.cvshealth.accessibility.apps.androidviewaccessibilitytechniques
 
 import android.os.Bundle
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
